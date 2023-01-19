@@ -14,22 +14,9 @@ const vuetify = createVuetify({
   directives,
 })
 
-// const app = createApp(App)
-// app.use(vuetify)
-// app.mount('#app').$nextTick(() => {
-//   postMessage({ payload: 'removeLoading' }, '*')
-// })
-
 createApp(App)
   .use(vuetify)
   .mount('#app')
   .$nextTick(() => {
     postMessage({ payload: 'removeLoading' }, '*')
   })
-
-// new Vue({
-//   // router,
-//   // store,
-//   // vuetify,
-//   render: (h) => h(App),
-// }).$mount('#app');
