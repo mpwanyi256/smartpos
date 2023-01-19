@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-
-console.log("[App.vue]", `Hello world from Electron ${process.versions.electron}!`)
-</script>
-
 <template>
   <div>
     <a href="https://www.electronjs.org/" target="_blank">
@@ -22,7 +16,16 @@ console.log("[App.vue]", `Hello world from Electron ${process.versions.electron}
     <img style="width:5em;" src="/node.svg" alt="Node logo">
   </div>
 </template>
+<script>
+import HelloWorld from '@/components/HelloWorld.vue'
 
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  }
+}
+</script>
 <style>
 .flex-center {
   display: flex;

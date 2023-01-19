@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron'
 import renderer from 'vite-plugin-electron-renderer'
+import { resolve } from 'path'
 import pkg from './package.json'
 
 // https://vitejs.dev/config/
@@ -12,8 +13,14 @@ export default defineConfig(({ command }) => {
   const isServe = command === 'serve'
   const isBuild = command === 'build'
   const sourcemap = isServe || !!process.env.VSCODE_DEBUG
+  const projectRootDir = resolve(__dirname);
 
   return {
+    resolve: {
+      alias: {
+        "@": resolve(projectRootDir, "src"),
+      }
+    },
     plugins: [
       vue(),
       electron([
