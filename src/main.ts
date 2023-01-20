@@ -1,15 +1,18 @@
 import { createApp } from 'vue'
 import axios from 'axios'
 import '@mdi/font/css/materialdesignicons.css'
+require('dotenv').config();
 
 import "./style.css"
 import App from './App.vue'
 import './samples/node-api'
-require('dotenv').config();
+import router from './router'
+import store from './store'
 
-// Vuetify
+// Styles
 import 'vuetify/styles'
 import vuetify from './plugins/vuetify'
+import './styles/main.scss';
 
 // Event bus
 import eventBus from './plugins/Eventbus'
@@ -22,6 +25,8 @@ axios.defaults.baseURL = `${serverUrlToUse}/papi/`;
 const app = createApp(App)
 app.use(vuetify)
 eventBus(app)
+app.use(router)
+app.use(store)
 app.mount('#app')
   .$nextTick(() => {
     postMessage({ payload: 'removeLoading' }, '*')

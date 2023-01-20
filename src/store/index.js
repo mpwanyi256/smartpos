@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore } from 'vuex';
 import auth from './auth';
 import sales from './sales';
 import accounts from './accounts';
@@ -18,9 +17,7 @@ import backups from './backups';
 import pdf from './pdf';
 import network from './network';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default createStore({
   modules: {
     auth,
     sales,

@@ -1,6 +1,6 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Meta from 'vue-meta';
+// import Vue from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
+// import Meta from 'vue-meta';
 import auth from './auth';
 import error from './error';
 import home from './home';
@@ -17,10 +17,10 @@ import Outlets from './outlet';
 import Verification from './verification';
 import AccountRecovery from './recovery';
 
-Vue.use(VueRouter);
-Vue.use(Meta, {
-  refreshOnceOnNavigation: true,
-});
+// Vue.use(VueRouter);
+// Vue.use(Meta, {
+//   refreshOnceOnNavigation: true,
+// });
 
 const routes = [
   auth,
@@ -38,12 +38,11 @@ const routes = [
   Outlets,
   Verification,
   AccountRecovery,
-  { path: '*', component: () => import('@/views/auth/login.vue') },
+  // { path: '*', component: () => import('@/views/auth/login.vue') },
 ];
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE,
+const router = createRouter({
+  history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition || from.meta.scrollToTop === false) {
@@ -59,7 +58,7 @@ const router = new VueRouter({
     }
     return {};
   },
-});
+})
 
 router.beforeEach((to, from, next) => {
   const LoggedInUserId = localStorage.getItem('smart_user_id');
