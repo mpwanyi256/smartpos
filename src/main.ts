@@ -1,8 +1,6 @@
 import { createApp } from 'vue'
 import axios from 'axios'
 import firebase from 'firebase'
-// import 'firebase/firebase-analytics';
-// import 'firebase/firestore';
 import '@mdi/font/css/materialdesignicons.css'
 require('dotenv').config();
 
