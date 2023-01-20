@@ -11,6 +11,7 @@
 
     <v-card-text>
       This is content
+      <v-btn lg @click="triggerEmit">Trigger Emit</v-btn>
     </v-card-text>
   </v-card>
   </div>
@@ -19,7 +20,16 @@
 
 export default {
   name: 'App',
-  components: {
+  methods: {
+    triggerEmit() {
+      this.$eventBus.$emit('started--app', new Date())
+    },
+    listenToCB(data) {
+      console.log('Triggered started app event', data)
+    }
+  },
+  eventBusCallbacks: {
+    'started--app': 'listenToCB'
   }
 }
 </script>

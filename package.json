@@ -1,6 +1,6 @@
 {
   "name": "smartpos",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "dist-electron/main/index.js",
   "description": "Smart POS crossplatform APP.",
   "author": "Samuel Mpwanyi",
@@ -44,6 +44,7 @@
     "dotenv": "^16.0.1",
     "export-to-csv": "^0.2.1",
     "firebase": "^8.6.2",
+    "mitt": "^3.0.0",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",
     "validator": "^13.6.0",
