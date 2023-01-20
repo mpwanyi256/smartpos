@@ -4,11 +4,8 @@
       :size="850" @close="$emit('close')">
       <div class="manager_actions">
           <div class="actions_list">
-            <template v-for="(action, i) in actions">
-              <div class="action"
-                :key="i"
-                @click="$emit('action', action.action)"
-              >
+            <template v-for="(action, i) in actions" :key="i">
+              <div class="action" @click="$emit('action', action.action)">
                 {{ action.name }}
               </div>
             </template>
