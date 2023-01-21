@@ -1,6 +1,6 @@
 {
   "name": "smartpos",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "main": "dist-electron/main/index.js",
   "description": "Smart POS crossplatform APP.",
   "author": "Samuel Mpwanyi",
