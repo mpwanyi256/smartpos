@@ -46,3 +46,12 @@ jobs:
           name: release_on_${{ matrix. os }}
           path: release/
           retention-days: 5
+
+      - name: Create release
+        uses: marvinpinto/action-automatic-releases@<VERSION>
+        with:
+          repo_token: ${{ secrets.G_TOKEN }}
+          prerelease: true
+          files: |
+            LICENSE.txt
+            *.jar
