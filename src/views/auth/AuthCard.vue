@@ -5,8 +5,8 @@
             <div class="text-center mb-3">
               <h1>Smart Client POS</h1>
             </div>
-            <v-text-field v-model.trim="Username" label="Username"></v-text-field>
-            <v-text-field v-model.trim="Password" label="Password" type="password">
+            <v-text-field v-model.trim="Username" label="Username" type="input"></v-text-field>
+            <v-text-field v-model.trim="Password" label="Password" type="password" hint="Enter your password to access your account.">
             </v-text-field>
             <v-btn type="submit" block class="btn-login">Login</v-btn>
             <div class="sign_up_div">

@@ -288,13 +288,15 @@ export default {
       }
     },
     performLogout({ commit }) {
+      console.log('Perform logout')
       localStorage.removeItem('smart_user_id');
       localStorage.removeItem('smart_user_name');
       localStorage.removeItem('smart_user_role');
       localStorage.removeItem('smart_company_day_open');
       localStorage.removeItem('smart_company_id');
+      localStorage.removeItem('smart_outlet_id')
       commit('setUser', null);
-      router.push({ name: 'login' });
+      router.replace({ name: 'login' });
     },
     async getDayOpen({ commit }, companyId) {
       const params = new FormData();

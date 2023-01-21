@@ -1,31 +1,31 @@
 <template>
-    <div class="pos_home">
-        <NavBar />
-        <div class="sales_view">
-            <Orders />
-            <MenuSection />
-            <SelectedOrder />
-            <Actions />
-        </div>
-      <BillModal
-        v-if="showBill && runningOrder"
-        :order="runningOrder"
-        @close="showBill = false"
-      />
-      <AddDiscountModal
-        v-if="showDiscount"
-        @close="showDiscount = false"
-      />
-      <OrderSettlementModal
-        v-if="openSettementModal"
-        @close="openSettementModal = false"
-      />
-      <WaitersModal
-        v-if="showWaiters"
-        :order="runningOrder"
-        @close="showWaiters = false"
-      />
-    </div>
+  <div v-if="user" class="pos_home">
+      <NavBar />
+      <div class="sales_view">
+          <Orders />
+          <MenuSection />
+          <SelectedOrder />
+          <Actions />
+      </div>
+    <BillModal
+      v-if="showBill && runningOrder"
+      :order="runningOrder"
+      @close="showBill = false"
+    />
+    <AddDiscountModal
+      v-if="showDiscount"
+      @close="showDiscount = false"
+    />
+    <OrderSettlementModal
+      v-if="openSettementModal"
+      @close="openSettementModal = false"
+    />
+    <WaitersModal
+      v-if="showWaiters"
+      :order="runningOrder"
+      @close="showWaiters = false"
+    />
+  </div>
 </template>
 <script>
 import { mapGetters } from 'vuex';

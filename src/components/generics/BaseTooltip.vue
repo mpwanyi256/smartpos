@@ -1,23 +1,18 @@
 <template>
-    <v-tooltip bottom>
-        <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          :disabled="disabled"
-          :loading="loading"
-          :x-small="small"
-          icon
-          :class="color ? color : 'black--text'" dark
-          v-bind="attrs" v-on="on" @click="$emit('button')">
-          <v-icon>{{ `mdi-${icon}` }}</v-icon>
-          <template v-slot:loader>
-            <span class="custom-loader">
-              <v-icon light>mdi-cached</v-icon>
-            </span>
-          </template>
-        </v-btn>
-        </template>
-        <span>{{ message }}</span>
-    </v-tooltip>
+  <v-btn
+    :loading="loading"
+    :disabled="disabled"
+    :size="small ? 'x-small' : ''"
+    variant="icon"
+    :class="color ? color : 'black--text'" dark
+    @click="$emit('button')"
+  >
+  <v-icon>{{ `mdi-${icon}` }}</v-icon>
+    <v-tooltip
+      activator="parent"
+      location="bottom"
+    >{{ message }}</v-tooltip>
+  </v-btn>
 </template>
 <script>
 export default {

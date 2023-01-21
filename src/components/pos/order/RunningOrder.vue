@@ -10,7 +10,7 @@
                 <p>
                     {{ order.date }}
                     <span>
-                        <v-icon small class="clock_icon">mdi-clock-outline</v-icon>
+                      <v-icon small class="clock_icon">mdi-clock-outline</v-icon>
                     </span>
                     {{ order.time }}
                     <span v-if="order.waiter">

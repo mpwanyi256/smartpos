@@ -53,7 +53,7 @@
       temporary
     >
       <SalesNavBar :title="fullName" :links="filteredRoutes">
-        <template slot="logout">
+        <template #logout>
           <div class="menu">
             <div class="tray">
               <div class="side_bar_auth" @click="performLogout()">

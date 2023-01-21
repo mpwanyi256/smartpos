@@ -4,7 +4,7 @@
           class="day_open"
           v-show="dayOpen"
         >
-          <v-btn text
+          <v-btn variant="text"
             v-if="timeNow"
             :disabled="!canViewActions"
             @click="openActionsModal"

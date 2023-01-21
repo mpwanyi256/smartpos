@@ -1,24 +1,24 @@
 <template>
-    <div v-if="user" class="actions_pane">
-      <v-alert
-        v-if="errorMessage"
-        outlined dense
-        type="info"
-        class="white--text">
-        {{ errorMessage }}
-      </v-alert>
-      <template
-          v-for="(action, i) in actions">
-        <div :key="`action-${i}`" class="action_item"
-          @click="listen(action.name)"
-          v-if="isAllowedAction(action.name)"
-        >
-          <v-icon class="icon">{{ action.icon }}</v-icon>
-          <p class="name">{{ action.name }}
-          </p>
-        </div>
-      </template>
-    </div>
+  <div v-if="user" class="actions_pane">
+    <v-alert
+      v-if="errorMessage"
+      outlined dense
+      type="info"
+      class="white--text">
+      {{ errorMessage }}
+    </v-alert>
+    <template
+        v-for="(action, i) in actions">
+      <div :key="`action-${i}`" class="action_item"
+        @click="listen(action.name)"
+        v-if="isAllowedAction(action.name)"
+      >
+        <v-icon class="icon">{{ action.icon }}</v-icon>
+        <p class="name">{{ action.name }}
+        </p>
+      </div>
+    </template>
+  </div>
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex';

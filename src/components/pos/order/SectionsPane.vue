@@ -1,33 +1,31 @@
 <template>
     <div class="sections">
-      <v-expansion-panels>
-        <v-expansion-panel
-          v-for="(section,i) in sections"
-          :key="i"
-        >
-          <v-expansion-panel-header
-            :class="section.has_orders ? 'has-orders' : ''">
-            <div>
-              <span v-if="section.has_orders">
-                {{ ordersCount(section) }}
-              </span>
-              {{ section.name }}
-            </div>
-          </v-expansion-panel-header>
-          <v-expansion-panel-content
-          class="expansion_panel">
-            <div class="tables_display">
-              <TableComponent
-                v-for="table in activeTables(section)"
-                :key="`postable${table.id}`"
-                :table="table"
-                @order="confirmOrderCreation(table)"
-                :ref="`table-${table.id}`"
-              />
-            </div>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels>
+      <v-expansion-panels multiple v-model="panel">
+      <v-expansion-panel
+        v-for="(section,i) in sections"
+        :key="i"
+      >
+      <v-expansion-panel-title :class="section.has_orders ? 'has-orders' : ''">
+        <div>
+          <span v-if="section.has_orders">
+            {{ ordersCount(section) }}
+          </span>
+          {{ section.name }}
+        </div>
+      </v-expansion-panel-title>
+      <v-expansion-panel-text style="padding: 0 !important;">
+      <div class="tables_display">
+        <TableComponent
+          v-for="table in activeTables(section)"
+          :key="`postable${table.id}`"
+          :table="table"
+          @order="confirmOrderCreation(table)"
+          :ref="`table-${table.id}`"
+        />
+      </div>
+    </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
       <ConfirmModal
         v-if="dialog && tableSelected"
         :title="`Create new order for ${tableSelected.name}`"
@@ -73,6 +71,7 @@ export default {
     return {
       tableSelected: null,
       dialog: false,
+      panel: [0, 1]
     };
   },
 
@@ -144,9 +143,9 @@ export default {
   font-size: 14px;
 }
 
-  :v-deep .v-expansion-panel-content__wrap {
-    padding: 0px;
-  }
+:v-deep .v-expansion-panel-text__wrapper {
+  padding: 0px !important;
+}
 
 .has-orders {
   background-color: $header !important;
