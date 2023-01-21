@@ -1,10 +1,11 @@
 <template>
     <v-switch
-        v-model="status"
-        :color="status ? color ? color : 'green' : 'primary'"
-        :disabled="disabled"
-        :label="label"
-        hide-details
+      v-model="data"
+      :color="status ? color ? color : 'green' : 'primary'"
+      :disabled="disabled"
+      :label="label"
+      hide-details
+      inset
     />
 </template>
 <script>

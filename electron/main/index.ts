@@ -1,7 +1,7 @@
 import { app, BrowserWindow, shell, ipcMain } from 'electron'
 import { release } from 'node:os'
 import { join } from 'node:path'
-import installExt from './installDev'
+import installExt from './installDev.js'
 
 // The built directory structure
 //

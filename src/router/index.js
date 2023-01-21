@@ -60,22 +60,22 @@ const router = createRouter({
   },
 })
 
-router.beforeEach((to, from, next) => {
-  const LoggedInUserId = localStorage.getItem('smart_user_id');
-  const userRole = localStorage.getItem('smart_user_role');
-  if (to.authrequired && !LoggedInUserId) {
-    router.push({ name: 'login' });
-    // Waiters can only access pos page
-  } else if (LoggedInUserId && (parseInt(userRole, 10) === 3) && to.name !== 'pos') {
-    router.replace({ name: 'pos' });
-  }
-  if (to.matched.length) {
-    document.title = to.meta.title || 'Smart POS';
-    next();
-  } else {
-    document.title = 'Page not found';
-    router.push({ name: 'login' });
-  }
-});
+// router.afterEach((to, from, next) => {
+//   const LoggedInUserId = localStorage.getItem('smart_user_id');
+//   const userRole = localStorage.getItem('smart_user_role');
+//   if (to.authrequired && !LoggedInUserId) {
+//     router.push({ name: 'login' });
+//     // Waiters can only access pos page
+//   } else if (LoggedInUserId && (parseInt(userRole, 10) === 3) && to.name !== 'pos') {
+//     router.replace({ name: 'pos' });
+//   }
+//   if (to.matched.length) {
+//     document.title = to.meta.title || 'Smart POS';
+//     next();
+//   } else {
+//     document.title = 'Page not found';
+//     router.push({ name: 'login' });
+//   }
+// });
 
 export default router;

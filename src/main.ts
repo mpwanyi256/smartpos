@@ -2,9 +2,9 @@ import { createApp } from 'vue'
 import axios from 'axios'
 import firebase from 'firebase'
 import '@mdi/font/css/materialdesignicons.css'
-import dotEnv from 'dotenv'
-dotEnv.config()
-// require('dotenv').config();
+// import dotEnv from 'dotenv'
+// dotEnv.config()
+require('dotenv').config();
 
 import "./style.css"
 import App from './App.vue'
@@ -22,18 +22,18 @@ import eventBus from './plugins/Eventbus'
 
 // Setup axios
 const addressSet = localStorage.getItem('smartpos_ipaddress_set');
-const serverUrlToUse = addressSet || process.env.VUE_APP_SERVER_URL;
+const serverUrlToUse = addressSet || 'https://www.pos.prodevkampala.com';
 axios.defaults.baseURL = `${serverUrlToUse}/papi/`;
 
 const firebaseAccountConfig = {
-  apiKey: process.env.VUE_APP_FB_API_KEY,
-  authDomain: process.env.VUE_APP_FB_AUTH_DOMAIN,
-  databaseURL: process.env.VUE_APP_FB_DB_URL,
-  projectId: process.env.VUE_APP_FB_PROJECT_ID,
-  storageBucket: process.env.VUE_APP_FB_STORAGE_BUCKET,
-  messagingSenderId: process.env.VUE_APP_FB_MESSAGESENDER_ID,
-  appId: process.env.VUE_APP_FB_APP_ID,
-  measurementId: process.env.VUE_APP_FB_MEASUREMENT_ID,
+  apiKey: 'AIzaSyDZFzAHQ7C_ShR_hrMfsUkbV2ty-PDayO8',
+  authDomain: 'poslive-49d9d.firebaseapp.com',
+  databaseURL: 'https://poslive-49d9d.firebaseio.com',
+  projectId: 'poslive-49d9d',
+  storageBucket: 'poslive-49d9d.appspot.com',
+  messagingSenderId: '800880700138',
+  appId: '1:800880700138:web:9f1036fd5e3ec415e30593',
+  measurementId: 'G-SE4P60CNHD',
 };
 
 const app = createApp(App)
