@@ -47,11 +47,11 @@ jobs:
           path: release/
           retention-days: 5
 
-      - name: Create release
-        uses: marvinpinto/action-automatic-releases@latest
-        with:
-          repo_token: ${{ secrets.G_TOKEN }}
-          prerelease: true
-          files: |
-            LICENSE.txt
-            *.jar
+      # - name: Create release
+      #   uses: marvinpinto/action-automatic-releases@latest
+      #   with:
+      #     repo_token: ${{ secrets.G_TOKEN }}
+      #     prerelease: true
+      #     files: |
+      #       LICENSE.txt
+      #       *.jar
