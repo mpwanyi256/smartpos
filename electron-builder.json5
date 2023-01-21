@@ -22,7 +22,6 @@
     "target": [
       {
         "target": "nsis",
-        "icon": "public/win/icon.ico",
         "arch": [
           "x64"
         ]
