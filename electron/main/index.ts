@@ -1,7 +1,7 @@
 import { app, BrowserWindow, shell, ipcMain } from 'electron'
-import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { release } from 'node:os'
 import { join } from 'node:path'
+import installExt from './installDev'
 
 // The built directory structure
 //
@@ -78,8 +78,12 @@ async function createWindow() {
 }
 
 app.whenReady().then(async() => {
+  try {
+    await installExt();
+  } catch (e) {
+      console.log("Can not install extension!", e);
+  }
   createWindow()
-  await installExtension(VUEJS_DEVTOOLS);
 })
 
 app.on('window-all-closed', () => {

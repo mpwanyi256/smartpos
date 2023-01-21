@@ -38,13 +38,9 @@ export default {
         width: 100%;
         height: 114px;
         background-color: inherit;
-    }
 
-    >div {
-        width: 100%;
-    }
-
-    .stats_header:hover {
-      // overflow-x: auto;
+        > div {
+          width: 100%;
+        }
     }
 </style>

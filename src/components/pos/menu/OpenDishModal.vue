@@ -141,11 +141,11 @@ export default {
                 width: 30%;
             }
 
-            ::v-deep .text_field, .v-input {
+            :v-deep .text_field, .v-input {
                 width: 100%;
             }
 
-            ::v-deep .v-btn {
+            :v-deep .v-btn {
                 right: -71%;
             }
         }

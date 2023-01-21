@@ -69,7 +69,7 @@ export default {
         }
     }
 
-    ::v-deep .v-text-field__details {
+    :v-deep .v-text-field__details {
         display: none;
         height: 0;
     }

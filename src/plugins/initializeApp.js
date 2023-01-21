@@ -1,8 +1,9 @@
-import firebase from 'firebase';
+import firebase from 'firebase'
 
 // Indexed Database
 import idb from '../utilities/idb'
-import store from '../store';
+import store from '../store'
+import router from '../router'
 
 export default async () => {
     // initialize Indexed Database

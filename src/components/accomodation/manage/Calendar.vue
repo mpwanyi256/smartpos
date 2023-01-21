@@ -313,7 +313,7 @@ export default {
   overflow-y: auto;
 }
 
-::v-deep .v-calendar-daily__day-interval {
+:v-deep .v-calendar-daily__day-interval {
   cursor: pointer;
 }
 

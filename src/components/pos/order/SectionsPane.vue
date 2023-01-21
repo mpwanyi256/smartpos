@@ -144,7 +144,7 @@ export default {
   font-size: 14px;
 }
 
-  ::v-deep .v-expansion-panel-content__wrap {
+  :v-deep .v-expansion-panel-content__wrap {
     padding: 0px;
   }
 

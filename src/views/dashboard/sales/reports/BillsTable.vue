@@ -78,7 +78,7 @@ export default {
 };
 </script>
 <style scoped>
-  ::v-deep .v-input {
+  :v-deep .v-input {
     width: auto !important;
     padding: 0 !important;
     margin: 0 !important;

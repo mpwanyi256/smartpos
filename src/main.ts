@@ -2,7 +2,9 @@ import { createApp } from 'vue'
 import axios from 'axios'
 import firebase from 'firebase'
 import '@mdi/font/css/materialdesignicons.css'
-require('dotenv').config();
+import dotEnv from 'dotenv'
+dotEnv.config()
+// require('dotenv').config();
 
 import "./style.css"
 import App from './App.vue'

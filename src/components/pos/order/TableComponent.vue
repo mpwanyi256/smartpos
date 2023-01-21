@@ -72,7 +72,7 @@ export default {
 <style scoped lang="scss">
 @import '@/styles/constants.scss';
 
-::v-deep .v-expansion-panel-content__wrap {
+:v-deep .v-expansion-panel-content__wrap {
   padding: 0px;
 }
 

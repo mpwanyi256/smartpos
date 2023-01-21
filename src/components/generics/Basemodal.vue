@@ -45,7 +45,7 @@ export default {
 <style scoped lang="scss">
 @import '@/styles/pos.scss';
 
-  ::v-deep .v-text-field__details {
+  :v-deep .v-text-field__details {
     display: none;
     height: 0;
   }

@@ -211,7 +211,7 @@ export default {
     color: $red;
   }
 
-  ::v-deep .v-input__control {
+  :v-deep .v-input__control {
     top: 0;
     bottom: 0;
   }
