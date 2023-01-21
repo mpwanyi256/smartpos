@@ -48,7 +48,7 @@ jobs:
           retention-days: 5
 
       - name: Create release
-        uses: marvinpinto/action-automatic-releases@<VERSION>
+        uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: ${{ secrets.G_TOKEN }}
           prerelease: true
