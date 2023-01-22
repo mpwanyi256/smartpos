@@ -41,12 +41,12 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 @import '../../styles/constants.scss';
 
   .nav_section {
       width: 100%;
-      height: 100%;
+      height: calc(100vh - 52px);
       background-color: inherit;
       margin: 10px;
       overflow-x: hidden;
@@ -63,9 +63,10 @@ export default {
       font-weight: 600;
       letter-spacing: .011em;
       color: $black;
+      padding-bottom: 36px;
 
       > div {
-        height: 36px;
+        min-height: 36px;
         width: 100%;
         line-height: 1.5;
         display: inline-flex;

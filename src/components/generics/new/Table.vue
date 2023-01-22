@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     @import '@/styles/pos/new_variables.scss';
 
     table {

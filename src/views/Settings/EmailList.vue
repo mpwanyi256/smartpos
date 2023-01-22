@@ -1,7 +1,7 @@
 <template>
     <div class="emails">
         <Table>
-            <template slot="header">
+            <template #header>
               <tr>
                 <th>#</th>
                 <th>
@@ -19,7 +19,7 @@
                 </th>
               </tr>
             </template>
-            <template slot="body">
+            <template #body>
               <tr v-for="(email, i) in mails" :key="i">
                 <td>{{ i +1 }}</td>
                   <td class="email_address"
@@ -28,12 +28,20 @@
                       {{ email.email }}
                   </td>
                   <td>
-                    <BaseSwitch
-                        class="float-right"
-                        :status="email.is_active"
-                        color="green"
-                        @change="updateEmailStatus($event, email.id)"
+                    <v-switch
+                      class="float-right"
+                      @input="updateEmailStatus(!email.is_active, email.id)"
+                      :value="email.is_active"
+                      :color="email.is_active ? 'green' : 'primary'"
+                      hide-details
+                      inset
                     />
+                    <!-- <BaseSwitch
+                      class="float-right"
+                      :status="email.is_active"
+                      color="green"
+                      @toggle="updateEmailStatus($event, email.id)"
+                    /> -->
                   </td>
               </tr>
             </template>
@@ -56,14 +64,14 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import Table from '@/components/generics/new/Table.vue';
-import BaseSwitch from '@/components/generics/BaseSwitch.vue';
+// import BaseSwitch from '@/components/generics/BaseSwitch.vue';
 import SingleFieldUpdateModal from '@/components/generics/new/SingleFieldUpdateModal.vue';
 
 export default {
   name: 'EmailList',
   components: {
     Table,
-    BaseSwitch,
+    // BaseSwitch,
     SingleFieldUpdateModal,
   },
   data() {
@@ -122,8 +130,11 @@ export default {
     },
 
     updateEmailStatus(status, emailId) {
+      console.log('status', status)
+      const updateValue = status
+      console.log('status', updateValue)
       this.post({
-        update_mail_status: status ? 0 : 1,
+        update_mail_status: updateValue ? 0 : 1,
         email_id: emailId,
       }).then(() => {
         this.fetchEmails();
@@ -132,7 +143,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
   .email_address {
     cursor: pointer;
   }

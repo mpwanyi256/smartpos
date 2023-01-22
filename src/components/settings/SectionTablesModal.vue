@@ -4,7 +4,7 @@
     :size="800" @close="$emit('close')">
         <div class="tables">
             <Table>
-                <template slot="header">
+                <template #header>
                 <tr>
                     <th>
                       <div class="add_options">
@@ -19,7 +19,7 @@
                     </th>
                 </tr>
             </template>
-            <template slot="body">
+            <template #body>
                 <tr v-for="(table, i) in selectedSection" :key="i">
                     <td class="table_name"
                       @click="updateTableName(table)"

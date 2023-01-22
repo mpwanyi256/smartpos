@@ -1,6 +1,7 @@
 <template>
     <v-switch
-      v-model="data"
+      @input="toggle"
+      :value="data"
       :color="status ? color ? color : 'green' : 'primary'"
       :disabled="disabled"
       :label="label"
@@ -36,12 +37,15 @@ export default {
       data: false,
     };
   },
-  watch: {
-    data(val) {
-      if (val !== this.status) this.$emit('change', val);
-    },
+  methods: {
+    toggle(val) {
+      // const updatedVal = val.target._value
+      // this.data = !this.data
+      // console.log('data', this.data)
+      this.$emit('toggle', !this.data);
+    }
   },
-  created() {
+  mounted() {
     this.data = this.status;
   },
 };

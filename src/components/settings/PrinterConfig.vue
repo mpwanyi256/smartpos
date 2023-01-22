@@ -15,7 +15,7 @@
               v-model="connectionType"
               label="Connection type"
               outlined
-              item-text="name"
+              item-title="name"
               item-value="id"
             />
             <v-btn

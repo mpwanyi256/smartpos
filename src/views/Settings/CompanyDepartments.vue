@@ -1,12 +1,12 @@
 <template>
     <PageTemplate class="page" title="Company departments">
-        <template #header-actions>
+      <template #header-actions>
         <BaseTextfield @value="search = $event" placeholder="Search" />
         <BaseTooltip
-            @button="createDepartment = true"
-            message="Create new department"
-            icon="plus"
-            color="black"
+          @button="createDepartment = true"
+          message="Create new department"
+          icon="plus"
+          color="black"
         />
       </template>
       <template #body>

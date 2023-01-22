@@ -6,12 +6,14 @@
                     <th>
                       <div class="search_field">
                         <BaseTextfield @input="search = $event" placeholder="Search ..." />
-                        <v-select small-chips outlined dense
+                        <v-select outlined
+                        density="compact"
                           :items="outlets"
-                          item-text="name"
+                          item-title="name"
                           item-value="id"
                           label="Outlet"
                           v-model="selectedOutlet"
+                          single-line
                         />
                       </div>
                     </th>
