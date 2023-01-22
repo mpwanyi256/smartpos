@@ -1,7 +1,7 @@
 <template>
   <PageTemplate class="page" title="Employees">
-    <template slot="header-actions">
-        <BaseTextfield v-model="search" placeholder="Search" />
+    <template #header-actions>
+        <BaseTextfield @value="search = $event" placeholder="Search" />
         <BaseTooltip
             @button="openAddUserModal = true"
             message="Create new employee"
@@ -9,9 +9,9 @@
             color="black"
         />
       </template>
-      <template slot="body">
+      <template #body>
         <Table>
-          <template slot="header">
+          <template #header>
             <tr>
                   <th>Full name</th>
                   <th>USERNAME</th>
@@ -22,7 +22,7 @@
                   <th>&nbsp;</th>
               </tr>
           </template>
-          <template slot="body">
+          <template #body>
             <tr v-for="(employee, i) in filteredEmployees" :key="i">
               <td>
                 <div class="user_avatar">

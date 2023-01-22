@@ -1,23 +1,26 @@
 <template>
     <div class="direct_settle">
             <h2>Bill: {{ order.final_amount }}</h2>
-            <v-select outlined class="settle_options"
-                label="Select settlement option"
-                v-model="settlementId" dense
-                :items="paymentSettlements"
-                item-text="name"
-                item-value="id"
+            <v-select
+              class="settle_options"
+              outlined
+              label="Select settlement"
+              v-model="settlementId"
+              :items="paymentSettlements"
+              item-title="name"
+              item-value="id"
+              single-line
             />
             <BaseTextfield
-                placeholder="Add payment notes or reason"
-                inputType="text"
-                v-model.trim="notes"
+              placeholder="Add payment notes or reason"
+              inputType="text"
+              @value="notes = $event"
             />
             <v-btn block
               class="btn_settle"
               :disabled="!validSettlement"
               @click="settleOrder">
-                Settle Bill
+                Settle Bill {{ validSettlement }} {{ settlementId }}
             </v-btn>
     </div>
 </template>
@@ -51,7 +54,7 @@ export default {
   },
   computed: {
     validSettlement() {
-      return this.notes.length > 3 && this.settlementId > 0;
+      return this.notes.length > 3 && parseInt(this.settlementId, 10) > 0;
     },
     settlementDetails() {
       return parseInt(this.settlementId, 10) > 0 ? this.paymentSettlements

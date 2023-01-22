@@ -13,3 +13,7 @@ body {
     top: 0;
     bottom: 0;
 }
+// Override styles
+.v-expansion-panel-text__wrapper {
+    padding: 0px !important;
+}

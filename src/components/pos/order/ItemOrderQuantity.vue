@@ -5,7 +5,7 @@
         <div class="item_quantity_entry">
             <BaseTextfield
                 ref="quantityInput"
-                v-model="quantity"
+                @value="quantity = $event"
                 :preset="quantity"
                 inputType="number"
                 placeholder="Quantity"

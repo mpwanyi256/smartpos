@@ -2,7 +2,7 @@
   <InfiniteScroll class="purchases_section" @refetch="fetchMore" :hasNext="hasNext">
     <template #content>
       <Table>
-        <template slot="header">
+        <template #header>
           <tr>
             <th>
               <div class="purchases_filter">
@@ -20,7 +20,7 @@
               </div>
             </th>
             <th>
-              <BaseTextfield v-model="search" placeholder="Search" />
+              <BaseTextfield @value="search = $event" placeholder="Search" />
             </th>
             <th>Date</th>
             <th>Invoice amount</th>
@@ -29,7 +29,7 @@
             <th>&nbsp;</th>
           </tr>
         </template>
-        <template slot="body">
+        <template #body>
             <tr v-for="(invoice, i) in invoices" :key="i">
                 <td>{{ invoice.supplier.toUpperCase() }}</td>
                 <td>{{ invoice.inv_no }}</td>

@@ -5,7 +5,7 @@
                 {{ title ? title : 'Are you sure you want to delete item?' }}
             </h3>
             <div class="reason_section" v-if="requireReason">
-                <BaseTextfield placeholder="Reason" v-model.trim="reason" />
+              <BaseTextfield placeholder="Reason" @value="reason = $event" />
             </div>
             <div class="confirm_options">
                 <v-btn class="confirm_yes"

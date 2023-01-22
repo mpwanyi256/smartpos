@@ -7,7 +7,7 @@
             <div class="frm_entry">
                 <label>Property name</label>
                 <BaseTextfield
-                  v-model="property.name"
+                  @value="property.name = $event"
                   :preset="property.name"
                   placeholder="Property name"
                 />
@@ -15,7 +15,7 @@
             <div class="frm_entry">
                 <label>Address</label>
                 <BaseTextfield
-                  v-model="property.address"
+                  @value="property.address = $event"
                   :preset="property.address"
                   placeholder="Property address"
                 />

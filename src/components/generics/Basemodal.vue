@@ -3,16 +3,15 @@
       v-model="dialog"
       :width="size ? size : 500"
       persistent
-      activator="parent"
       :fullscreen="fullscreen">
         <v-card class="modal_content">
           <v-card-title class="black--text">
-            {{ title ? title : '' }}
-            <v-spacer></v-spacer>
-            <slot name="action" />
             <v-btn variant="icon" color="black" @click="$emit('close')">
               <v-icon>mdi-close</v-icon>
             </v-btn>
+            {{ title ? title : '' }}
+            <v-spacer></v-spacer>
+            <slot name="action" />
           </v-card-title>
           <slot></slot>
         </v-card>

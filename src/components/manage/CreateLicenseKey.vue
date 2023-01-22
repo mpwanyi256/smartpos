@@ -12,7 +12,7 @@
                     </p>
                 </div>
                 <div>
-                    <BaseTextfield v-model="duration" placeholder="Days" inputType="number" />
+                    <BaseTextfield @input="duration = $event" placeholder="Days" inputType="number" />
                 </div>
                 <div>
                     <v-btn fab small @click="generateKey">
@@ -27,7 +27,7 @@
             </div>
           <div class="licenses_list">
               <Table>
-                <template slot="header">
+                <template #header>
                     <tr>
                         <th>Key</th>
                         <th>Duration</th>
@@ -35,7 +35,7 @@
                         <th>&nbsp;</th>
                     </tr>
                 </template>
-                <template slot="body">
+                <template #body>
                 <tr v-for="License in clientLicenses" :key="License.id">
                     <td>{{ License.key }}</td>
                     <td>{{ License.duration }}</td>

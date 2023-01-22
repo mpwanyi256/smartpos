@@ -1,11 +1,11 @@
 <template>
     <div class="access_conrols">
         <Table>
-            <template slot="header">
+            <template #header>
                 <tr>
                     <th>
                       <div class="search_field">
-                        <BaseTextfield v-model="search" placeholder="Search ..." />
+                        <BaseTextfield @input="search = $event" placeholder="Search ..." />
                         <v-select small-chips outlined dense
                           :items="outlets"
                           item-text="name"
@@ -18,7 +18,7 @@
                     <th>STATUS</th>
                 </tr>
             </template>
-            <template slot="body">
+            <template #body>
                 <tr v-for="(setting, i) in filteredControls" :key="i">
                     <td>
                       <p>

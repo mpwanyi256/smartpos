@@ -5,19 +5,19 @@
         <div class="outlet_frm">
             <label>Outlet name</label>
             <BaseTextfield
-                v-model.trim="name"
+                @value="name = $event"
                 placeholder="Outlet name"
                 :inputType="'text'"
             />
             <label>Location</label>
             <BaseTextfield
-                v-model.trim="location"
+                @value="location = $event"
                 placeholder="Outlet location"
                 :inputType="'text'"
             />
             <label>Currency Prefix</label>
             <BaseTextfield
-                v-model.trim="currency"
+                @value="currency = $event"
                 placeholder="UGX"
                 :inputType="'text'"
             />

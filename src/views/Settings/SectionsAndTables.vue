@@ -1,21 +1,21 @@
 <template>
     <div class="sections_and_tables">
         <Table>
-          <template slot="header">
+          <template #header>
               <tr>
                   <th>
                     <div class="add_options">
                       <v-btn icon @click="addNewSection = true">
                         <v-icon>mdi-plus</v-icon>
                       </v-btn>
-                      <BaseTextfield v-model="search" placeholder="Search" />
+                      <BaseTextfield @value="search = $event" placeholder="Search" />
                     </div>
                   </th>
                   <th>TABLES</th>
                   <th>Active</th>
               </tr>
           </template>
-          <template slot="body">
+          <template #body>
               <tr v-for="(section, i) in filteredSections" :key="i">
                   <td class="section_name"
                     @click="updateSectionName(section)"

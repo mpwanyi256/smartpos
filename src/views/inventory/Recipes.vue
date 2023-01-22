@@ -13,7 +13,7 @@
                 message="Download receipes" icon="download"
                 color="green"
               />
-              <BaseTextfield v-model="search" placeholder="Search" />
+              <BaseTextfield @value="search = $event" placeholder="Search" />
               <v-select
                 dense outlined
                 label="Department"

@@ -2,7 +2,7 @@
     <div class="suppliers">
       <div class="suppliers-table">
         <Table>
-          <template slot="header">
+          <template #header>
               <tr>
                   <th>
                     <div class="add_supplier_option">
@@ -10,7 +10,7 @@
                         @button="newSupplier = true"
                         message="Add new supplier" icon="plus"
                       />
-                      <BaseTextfield v-model="search" placeholder="Search..." />
+                      <BaseTextfield @value="search = $event" placeholder="Search..." />
                     </div>
                   </th>
                   <th>Contact</th>
@@ -21,7 +21,7 @@
                   <th>&nbsp;</th>
               </tr>
           </template>
-          <template slot="body">
+          <template #body>
           <LinearLoader v-if="loading" />
               <tr v-else
                 v-for="supplier in suppliers" :key="supplier.id"

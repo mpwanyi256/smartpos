@@ -6,7 +6,7 @@
         <div class="new_table">
             <p class="grey--text">Printer name or IP address</p>
             <BaseTextfield
-              v-model="printerAddress"
+              @value="printerAddress = $event"
               placeholder="Printer name or IP address"
             />
             <p class="grey--text mt-3">Connection type</p>

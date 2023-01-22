@@ -1,7 +1,7 @@
 <template>
     <div class="entry">
         <template v-if="update">
-            <BaseTextfield v-model="updatedValue"
+            <BaseTextfield @value="updatedValue = $event"
                 :preset="updatedValue" placeholder="Enter value" />
             <v-btn small @click="updateSetting">
                 Update

@@ -3,7 +3,7 @@
     <div class="knock_off_entry">
         <div class="frm_entry">
             <p>Knock off in {{ selected_store_item.unit_measure.toLowerCase() }}</p>
-            <BaseTextfield v-model="knockOffQuantity"
+            <BaseTextfield @value="knockOffQuantity = $event"
               :placeholder="`Enter ${selected_store_item.unit_measure}`" />
               <v-btn
                 :disabled="!knockOffQuantity"

@@ -7,7 +7,7 @@
                     <p>Company name</p>
                     <BaseTextfield
                         :preset="name"
-                        v-model="name"
+                        @value="name = $event"
                         placeholder="Company name"
                     />
                 </div>
@@ -15,7 +15,7 @@
                     <p>Company address</p>
                     <BaseTextfield
                         :preset="address"
-                        v-model="address"
+                        @value="address = $event"
                         placeholder="address"
                     />
                 </div>
@@ -23,7 +23,7 @@
                     <p>Tin number</p>
                     <BaseTextfield
                         :preset="tin"
-                        v-model="tin"
+                        @value="tin = $event"
                         placeholder="tin"
                     />
                 </div>
@@ -31,7 +31,7 @@
                     <p>Contact number</p>
                     <BaseTextfield
                         :preset="contact"
-                        v-model="contact"
+                        @value="contact = $event"
                         placeholder="Contact number"
                     />
                 </div>
@@ -45,7 +45,7 @@
                     <p>Receipt foot note</p>
                     <BaseTextfield
                         :preset="receipt"
-                        v-model="receipt"
+                        @value="receipt = $event"
                         placeholder="Receipt note"
                     />
                 </div>

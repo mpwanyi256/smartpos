@@ -5,9 +5,9 @@
     >
         <div class="from_update">
             <BaseTextfield
-                v-model="input"
-                :preset="input"
-                :placeholder="placeholder"
+              @value="input = $event"
+              :preset="input"
+              :placeholder="placeholder"
             />
             <v-btn
                 class="float-right mt-3"

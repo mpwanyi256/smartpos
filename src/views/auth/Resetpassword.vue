@@ -16,7 +16,7 @@
                             <div class="outlets-list mt-5">
                               <template v-if="!setNewPassword">
                                 <BaseTextfield
-                                  v-model.trim="code"
+                                  @value="code = $event"
                                   placeholder="code"
                                 />
                                 <v-btn :disabled="code.length < 5"
@@ -26,12 +26,12 @@
                               </template>
                               <template v-else>
                                 <BaseTextfield
-                                  v-model.trim="newPassword"
+                                  @value="newPassword = $event"
                                   placeholder="Enter new password"
                                   inputType="password"
                                 />
                                 <BaseTextfield
-                                  v-model.trim="passwordConfirm"
+                                  @value="passwordConfirm = $event"
                                   placeholder="Confirm password"
                                   inputType="password"
                                 />
@@ -61,9 +61,9 @@
                             </div>
                             <div class="resend-verification-code">
                                 <BaseTextfield
-                                    v-model.trim="companyEmailAddress"
-                                    :preset="companyEmailAddress"
-                                    placeholder="Enter email address"
+                                  @value="companyEmailAddress = $event"
+                                  :preset="companyEmailAddress"
+                                  placeholder="Enter email address"
                                 />
                                 <v-btn :disabled="!isValidEmail" class="ml-4 mr-4 primary"
                                     @click="sendVerificationCode">

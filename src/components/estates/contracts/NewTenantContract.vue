@@ -9,27 +9,27 @@
         <div class="tenant_contract">
             <div class="frm_entry">
                 <label>First name</label>
-                <BaseTextfield v-model="firstName" placeholder="First name" />
+                <BaseTextfield @value="firstName = $event" placeholder="First name" />
             </div>
             <div class="frm_entry">
                 <label>Last name</label>
-                <BaseTextfield v-model="lastName" placeholder="Last name" />
+                <BaseTextfield @value="lastName = $event" placeholder="Last name" />
             </div>
             <div class="frm_entry">
                 <label>Address</label>
-                <BaseTextfield v-model="address" placeholder="Address" />
+                <BaseTextfield @value="address = $event" placeholder="Address" />
             </div>
             <div class="frm_entry">
                 <label>Email</label>
-                <BaseTextfield v-model="email" placeholder="Email address" />
+                <BaseTextfield @value="email = $event" placeholder="Email address" />
             </div>
             <div class="frm_entry">
                 <label>Contact</label>
-                <BaseTextfield v-model="contactNumber" placeholder="Contact number" />
+                <BaseTextfield @value="contactNumber = $event" placeholder="Contact number" />
             </div>
             <div class="frm_entry">
                 <label>Tin number</label>
-                <BaseTextfield v-model="tinNumber" placeholder="Tin number" />
+                <BaseTextfield @value="tinNumber = $event" placeholder="Tin number" />
             </div>
         </div>
         <h4 class="grey--text">
@@ -60,7 +60,7 @@
             </div>
             <div class="frm_entry">
                 <label>Agreed monthly rent</label>
-                <BaseTextfield v-model="agreedRent" :preset="agreedRent"
+                <BaseTextfield @value="agreedRent = $event" :preset="agreedRent"
                 inputType="number" placeholder="Monthly rent agreed" />
             </div>
             <div class="frm_entry">

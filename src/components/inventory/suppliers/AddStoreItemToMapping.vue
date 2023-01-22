@@ -1,13 +1,13 @@
 <template>
     <Table>
-        <template slot="header">
+        <template #header>
             <tr>
               <th colspan="2">
-                <BaseTextfield v-model="search" placeholder="Search ..." />
+                <BaseTextfield @value="search = $event" placeholder="Search ..." />
               </th>
             </tr>
         </template>
-        <template slot="body">
+        <template #body>
             <tr
                 v-for="item in filteredStoreItems" :key="item.id"
             >

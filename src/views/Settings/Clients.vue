@@ -5,7 +5,7 @@
                 <h1>Clients</h1>
             </div>
             <div>
-                <BaseTextfield v-model="search" placeholder="Search" />
+                <BaseTextfield @value="search = $event" placeholder="Search" />
                 <v-btn fab small @click="createClient = true">
                     <v-icon>mdi-plus</v-icon>
                 </v-btn>
@@ -13,7 +13,7 @@
         </div>
         <div class="clients_list">
             <Table>
-                <template slot="header">
+                <template #header>
                     <tr>
                         <th>#</th>
                         <th>Name</th>
@@ -24,7 +24,7 @@
                         <th>&nbsp;</th>
                     </tr>
                 </template>
-                <template slot="body">
+                <template #body>
                     <tr v-for="(client, i) in filteredClients" :key="`client-info-${i}`">
                         <td>{{ ++i }}</td>
                         <td>

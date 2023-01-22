@@ -11,7 +11,7 @@
                     <tr>
                       <th colspan="2">
                         <BaseTextfield
-                          v-model.trim="search"
+                          @value="search = $event"
                           class="input_field"
                           placeholder="Search ..."
                         />

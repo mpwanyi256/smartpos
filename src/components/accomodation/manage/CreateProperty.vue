@@ -7,14 +7,14 @@
             <div class="frm_entry">
                 <label>Property name</label>
                 <BaseTextfield
-                  v-model="name"
+                  @value="name = $event"
                   placeholder="Property name"
                 />
             </div>
             <div class="frm_entry">
                 <label>Address</label>
                 <BaseTextfield
-                  v-model="address"
+                  @value="address = $event"
                   placeholder="Property address"
                 />
             </div>

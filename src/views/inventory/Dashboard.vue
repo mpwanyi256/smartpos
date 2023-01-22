@@ -11,7 +11,7 @@
                 message="Download csv" icon="download"
                 color="green"
               />
-              <BaseTextfield v-model="search" placeholder="Search" />
+              <BaseTextfield @value="search = $event" placeholder="Search" />
             </div>
           </th>
           <th>Pack Size</th>

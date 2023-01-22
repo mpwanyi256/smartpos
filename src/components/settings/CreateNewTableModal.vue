@@ -4,7 +4,7 @@
         :size="500" @close="$emit('close')"
     >
         <div class="new_table">
-            <BaseTextfield v-model="tableName" placeholder="Table name" />
+            <BaseTextfield @value="tableName = $event" placeholder="Table name" />
             <v-btn
                 class="float-right mt-3"
                 :disabled="!tableName.length"

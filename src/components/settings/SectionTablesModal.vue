@@ -11,7 +11,7 @@
                         <v-btn icon @click="openCreateTableModal = true">
                           <v-icon>mdi-plus</v-icon>
                         </v-btn>
-                        <BaseTextfield v-model="search" placeholder="Search" />
+                        <BaseTextfield @value="search = $event" placeholder="Search" />
                       </div>
                     </th>
                     <th>

@@ -9,7 +9,7 @@
             <BaseTextfield
               :placeholder="payment.name"
               inputType="number"
-              v-model.trim="payments[`${payment.name.toLowerCase().split(' ')[0]}`]"
+              @value="payments[`${payment.name.toLowerCase().split(' ')[0]}`] = $event"
             />
         </div>
         <div class="settlement_btn">

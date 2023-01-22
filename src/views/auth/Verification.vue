@@ -20,7 +20,7 @@
                           </div>
                           <div class="resend-verification-code">
                               <BaseTextfield
-                                  v-model.trim="companyEmailAddress"
+                                  @value="companyEmailAddress = $event"
                                   :preset="companyEmailAddress"
                                   placeholder="Enter email address"
                               />
@@ -36,7 +36,7 @@
                           </div>
                           <div class="outlets-list mt-5">
                               <BaseTextfield
-                                  v-model.trim="code"
+                                  @value="code = $event"
                                   placeholder="code"
                               />
                               <v-btn :disabled="code.length < 5"

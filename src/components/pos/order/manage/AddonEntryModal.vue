@@ -6,14 +6,14 @@
             <div>
                 <label>Quantity</label>
                 <BaseTextfield
-                    v-model="quantity"
+                    @value="quantity = $event"
                     :preset="quantity"
                     input-type="number" placeholder="Quantity"
                 />
             </div>
             <div>
                 <label>Remarks</label>
-                <BaseTextfield v-model="notes" placeholder="Add notes" />
+                <BaseTextfield @value="notes = $event" placeholder="Add notes" />
             </div>
             <div>
                 <label></label>

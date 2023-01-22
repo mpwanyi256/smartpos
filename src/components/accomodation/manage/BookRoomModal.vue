@@ -8,7 +8,7 @@
                 <div>
                     <label>First name</label>
                       <BaseTextfield
-                        v-model="firstname"
+                        @value="firstname = $event"
                         :preset="firstname"
                         :disabled="selectedClientByEmail"
                         placeholder="First name"
@@ -16,7 +16,7 @@
                 </div><div>
                   <label>Last name</label>
                   <BaseTextfield
-                      v-model="lastname"
+                      @value="lastname = $event"
                       :preset="lastname"
                       :disabled="selectedClientByEmail"
                       placeholder="Last name"
@@ -27,15 +27,15 @@
                 <div>
                     <label>Address</label>
                     <BaseTextfield
-                    v-model="address"
-                    :preset="address"
-                    :disabled="selectedClientByEmail"
-                    placeholder="Address"
+                      @value="address = $event"
+                      :preset="address"
+                      :disabled="selectedClientByEmail"
+                      placeholder="Address"
                     />
                 </div><div>
                     <label>Email address</label>
                     <BaseTextfield
-                      v-model="email"
+                      @value="email = $event"
                       :preset="email"
                       placeholder="email"
                     />
@@ -51,7 +51,7 @@
                 <div>
                     <label>Contact number</label>
                     <BaseTextfield
-                      v-model="contactNumber"
+                      @value="contactNumber = $event"
                       :preset="contactNumber"
                       :disabled="selectedClientByEmail"
                       placeholder="+256780101601"
@@ -72,7 +72,7 @@
                 <div>
                   <label>Adults</label>
                   <BaseTextfield
-                    v-model="adults"
+                    @value="adults = $event"
                     inputType="number"
                     placeholder="Number of adults"
                   />
@@ -80,7 +80,7 @@
                 <div>
                   <label>Kids</label>
                   <BaseTextfield
-                    v-model="kids"
+                    @value="kids = $event"
                     inputType="number"
                     placeholder="number of kids"
                   />
@@ -120,17 +120,17 @@
                 <div>
                     <label>Daily rate {{ `${room.daily_rate_display} ${room.currency}` }}</label>
                     <BaseTextfield
-                    v-model="dailyCharge"
-                    :preset="dailyCharge"
-                    inputType="number"
-                    placeholder="Charge per day"
+                      @value="dailyCharge = $event"
+                      :preset="dailyCharge"
+                      inputType="number"
+                      placeholder="Charge per day"
                     />
                 </div>
                 <div>
                     <label>Client notes</label>
                     <BaseTextfield
-                        v-model="remarks"
-                        placeholder="Client remarks"
+                      @value="remarks = $event"
+                      placeholder="Client remarks"
                     />
                 </div>
             </div>

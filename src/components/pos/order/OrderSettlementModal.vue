@@ -3,49 +3,50 @@
         :title="`Settle order`"
         :size="800" @close="$emit('close')">
         <div class="settle">
-            <v-tabs class="tab-head" v-model="tab" color="basil" grow>
+            <v-tabs class="tab-head" v-model="tab" align-tabs="center">
               <v-tab class="tab-item"
-                  v-for="(item, index) in options"
-                  :key="`settlement-option${index}`"
-                  :class="isActiveTab(index) ? 'active' : ''"
+                v-for="(item, index) in options"
+                :key="`settlement-option__${index}`"
+                :class="isActiveTab(index) ? 'active' : ''"
+                :value="item.name"
               >
-                  {{ item.name }}
+                {{ item.name }}
               </v-tab>
             </v-tabs>
-            <v-tabs-items v-model="tab">
-                <v-tab-item>
+            <v-window v-model="tab">
+                <v-window-item value="Direct">
                     <DirectSettlement
                       :paymentSettlements="directSettlementOptions"
                       :user="user"
                       @pay="savePayment"
                       :order="runningOrder"
                     />
-                </v-tab-item>
-                <v-tab-item>
+                </v-window-item>
+                <v-window-item value="Split">
                     <SplitSettlement
                       :paymentSettlements="directSettlementOptions"
                       :user="user"
                       :order="runningOrder"
                       @pay="savePayment"
                     />
-                </v-tab-item>
-                <v-tab-item>
+                </v-window-item>
+                <v-window-item value="Company">
                   <CompanySettlement
                     :clients="clients"
                     :user="user"
                     :order="runningOrder"
                     @pay="savePayment"
                   />
-                </v-tab-item>
-                <v-tab-item>
+                </v-window-item>
+                <v-window-item value="Other">
                   <OtherSettlementTypes
                       :paymentSettlements="otherSettlementOptions"
                       :user="user"
                       :order="runningOrder"
                       @pay="savePayment"
                   />
-                </v-tab-item>
-            </v-tabs-items>
+                </v-window-item>
+            </v-window>
             <v-alert
               class="ma-2"
               v-if="errorMessage"

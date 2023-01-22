@@ -5,7 +5,7 @@
               class="client_search"
                 placeholder="Search for a client"
                 inputType="text"
-                v-model.trim="clientName"
+                @value="clientName = $event"
             />
             <div class="clients_list">
               <Client

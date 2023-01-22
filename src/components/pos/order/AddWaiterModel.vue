@@ -3,7 +3,7 @@
         title="Add Waiter"
         :size="700" @close="$emit('close')">
         <template name="action">
-          <BaseTextfield v-model.trim="search" />
+          <BaseTextfield @value="search = $event" />
         </template>
         <div class="waiters">
             <div class="waiters_list">

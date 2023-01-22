@@ -5,7 +5,7 @@
     <div class="supplier_payment">
         <div class="supplier_chooser">
             <div class="search_area">
-                <BaseTextfield v-model="search" placeholder="Search for a supplier" />
+                <BaseTextfield @input="search = $event" placeholder="Search for a supplier" />
             </div>
             <div class="suppliers_list">
                 <div>
@@ -21,7 +21,7 @@
             <div class="payment_details" v-show="selectedSupplier">
                 <div>
                     <label>Amount Paid</label>
-                    <BaseTextfield v-model="amount" inputType="number" placeholder="Amount paid" />
+                    <BaseTextfield @input="amount = $event" inputType="number" placeholder="Amount paid" />
                 </div>
                 <div>
                     <label>Date of payment</label>
@@ -42,11 +42,11 @@
                 </div>
                 <div>
                     <label>Payment reference</label>
-                    <BaseTextfield v-model="reference" placeholder="payment reference" />
+                    <BaseTextfield @input="reference = $event" placeholder="payment reference" />
                 </div>
                 <div>
                     <label>Remarks</label>
-                    <BaseTextfield v-model="remarks" placeholder="Remarks" />
+                    <BaseTextfield @input="remarks = $event" placeholder="Remarks" />
                 </div>
                 <div>
                     <label v-show="error" class="red--text">{{ error }}</label>
