@@ -3,7 +3,7 @@
         <OverviewHeader :title="`${orders.length} Running Orders`" />
         <div class="orders" @scroll="listenToScroll">
             <Table>
-                <template slot="header">
+                <template #header>
                 <tr>
                   <th>#</th>
                   <th>Table</th>
@@ -12,7 +12,7 @@
                   <th>&nbsp;</th>
                 </tr>
               </template>
-              <template slot="body">
+              <template #body>
                 <tr v-for="order in orders" :key="order.bill_no">
                     <td>{{ order.bill_no }}</td>
                     <td>{{ order.table }}</td>

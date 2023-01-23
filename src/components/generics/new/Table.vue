@@ -1,5 +1,5 @@
 <template>
-    <table>
+    <table class="table">
         <thead v-if="hasHeader">
             <slot name="header" />
         </thead>
@@ -29,7 +29,7 @@ export default {
 <style lang="scss">
     @import '@/styles/pos/new_variables.scss';
 
-    table {
+    .table {
         border-collapse: collapse;
         table-layout: auto;
         white-space: nowrap;

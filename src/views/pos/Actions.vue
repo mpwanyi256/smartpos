@@ -94,9 +94,7 @@ export default {
 
     addWaiterAction() {
       if (this.companyType === 1) {
-        this.actions.unshift(
-          { name: 'Waiter', icon: 'mdi-account-outline' },
-        );
+        this.actions = [{ name: 'Waiter', icon: 'mdi-account-outline' }, ...this.actions]
       }
     },
 
