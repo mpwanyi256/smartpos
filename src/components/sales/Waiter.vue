@@ -76,6 +76,7 @@ export default {
         }
 
         .name {
+          font-size: 1rem !important;
           color: $black;
           font-size: 16px;
         }

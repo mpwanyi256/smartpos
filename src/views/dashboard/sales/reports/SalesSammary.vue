@@ -2,19 +2,17 @@
   <div class="find_bill">
     <div class="search_filter">
         <div class="bill_no">
-          <h3>
-            Filter sales
-            <span>
-              <v-btn
-                v-if="sales.length >= 1"
-                small
-                @click="exportToExcel"
-                class="mt-2 ml-2 mb-2 green--text darken-4">
-                  <v-icon left color="green darken-4">mdi-file-excel</v-icon>
-                  {{ `Export ${sales.length} items` }}
-              </v-btn>
-            </span>
-            </h3>
+          <h3>Filter sales</h3>
+        </div>
+        <div class="bill_no">
+          <v-btn
+            v-if="sales.length >= 1"
+            small
+            @click="exportToExcel"
+            class="green--text darken-4">
+              <v-icon left color="green darken-4">mdi-file-excel</v-icon>
+              {{ `Export ${sales.length} items` }}
+          </v-btn>
         </div>
         <div class="bill_no">
           <DatePickerBeta @picked="setDateFrom" :message="'From'" />
@@ -30,12 +28,12 @@
       <LoadingSpinner class="large" v-if="loading" />
       <template v-else>
         <Table>
-          <template slot="header">
+          <template #header>
             <th v-for="(header, idx) in tableHeaders" :key="idx">
               {{ header.text }}
             </th>
           </template>
-          <template slot="body">
+          <template #body>
             <tr v-for="sale in sales" :key="sale.date">
               <td>{{ sale.date }}</td>
               <td>{{ sale.cash }}</td>
@@ -103,7 +101,7 @@ export default {
       ],
       page: 1,
       totalItems: 0,
-      itemsPerPage: 30,
+      itemsPerPage: 15,
     };
   },
   computed: {

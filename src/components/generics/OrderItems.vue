@@ -1,50 +1,46 @@
 <template>
     <div class="order_items">
-        <v-expansion-panels accordion>
+        <v-expansion-panels>
         <v-expansion-panel
             v-for="item in items" :key="item.id"
+            :title="`${item.quantity} ${item.item_name.toUpperCase()} (${item.amount})`"
         >
-            <v-expansion-panel-header>
-                {{ item.quantity }} {{ item.item_name.toUpperCase() }}
-                <v-spacer></v-spacer>
-                {{ item.amount }}
-            </v-expansion-panel-header>
-            <v-expansion-panel-content class="items_expanded">
-            <div class="item_lists">
-                <div class="items" v-for="menuItem in item.items_list" :key="menuItem.id">
-                    <div class="item_name">
-                        <div>
-                            {{ menuItem.quantity }}
-                            {{ menuItem.name.toUpperCase() }}
-                            <span class="item_notes" v-if="menuItem.notes">
-                                <br><strong>Notes: </strong>{{ menuItem.notes }}
-                            </span>
+            <v-expansion-panel-text>
+                <div class="item_lists">
+                    <div class="items" v-for="menuItem in item.items_list" :key="menuItem.id">
+                        <div class="item_name">
+                            <div>
+                                {{ menuItem.quantity }}
+                                {{ menuItem.name.toUpperCase() }}
+                                <span class="item_notes" v-if="menuItem.notes">
+                                    <br><strong>Notes: </strong>{{ menuItem.notes }}
+                                </span>
+                            </div>
+                            <div>
+                                {{ `Added By ${menuItem.added_by}
+                                ${timeElapsed(menuItem.date_added)}` }}
+                            </div>
                         </div>
-                        <div>
-                            {{ `Added By ${menuItem.added_by}
-                            ${timeElapsed(menuItem.date_added)}` }}
+                        <v-spacer></v-spacer><div class="item_amount">
+                            {{ menuItem.amount }}
                         </div>
-                    </div>
-                    <v-spacer></v-spacer><div class="item_amount">
-                        {{ menuItem.amount }}
-                    </div>
-                    <v-btn v-if="false"
-                        @click="$emit('cancel', menuItem)"
-                        small text color="red">
-                        <v-icon>mdi-delete</v-icon> Cancel item
-                    </v-btn>
-                    <template v-if="false">
-                        <v-btn small dark color="orange">
-                            <v-icon>mdi-cart</v-icon> KOT
+                        <v-btn v-if="false"
+                            @click="$emit('cancel', menuItem)"
+                            small text color="red">
+                            <v-icon>mdi-delete</v-icon> Cancel item
                         </v-btn>
-                        <v-btn @click="$emit('cancel', menuItem)" small dark color="orange">
-                            <v-icon>mdi-close</v-icon> Delete item
-                        </v-btn>
+                        <template v-if="false">
+                            <v-btn small dark color="orange">
+                                <v-icon>mdi-cart</v-icon> KOT
+                            </v-btn>
+                            <v-btn @click="$emit('cancel', menuItem)" small dark color="orange">
+                                <v-icon>mdi-close</v-icon> Delete item
+                            </v-btn>
 
-                    </template>
+                        </template>
+                    </div>
                 </div>
-            </div>
-            </v-expansion-panel-content>
+            </v-expansion-panel-text>
         </v-expansion-panel>
         </v-expansion-panels>
     </div>

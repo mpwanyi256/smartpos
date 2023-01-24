@@ -27,7 +27,7 @@
               outlined
               label="Select Client"
               v-model="selectedClient" dense
-              item-text="full_name"
+              item-title="full_name"
               item-value="id"
               :items="clientList"
             />
@@ -37,7 +37,7 @@
               outlined
               label="Settlement type"
               v-model="settlementType" dense
-              item-text="name"
+              item-title="name"
               item-value="id"
               :items="settlementOptions"
             />
@@ -53,8 +53,10 @@
           </div>
       </div>
       <div class="orders_table">
-          <LinearLoader v-if="loading" />
-          <BillsTable :orders="orders"
+          <LoadingSpinner class="large" v-if="loading" />
+          <BillsTable v-else :orders="orders"
+            :itemsPerPage="itemsPerPage"
+            :page="page"
             @view="showBill($event)"
             @settlements="viewSettlements"
             @items="showOrderItems"
@@ -83,7 +85,7 @@
 <script>
 import { mapActions, mapState } from 'vuex';
 import DatePickerBeta from '@/components/generics/DatePickerBeta.vue';
-import LinearLoader from '@/components/generics/Loading.vue';
+import LoadingSpinner from '@/components/generics/LoadingSpinner.vue';
 import OrderDetailsModal from '@/components/sales/modals/OrderDetails.vue';
 import BillModal from '@/components/sales/modals/Bill.vue';
 import BillsTable from '@/views/dashboard/sales/reports/BillsTable.vue';
@@ -97,7 +99,7 @@ export default {
   components: {
     DatePickerBeta,
     Pagination,
-    LinearLoader,
+    LoadingSpinner,
     OrderDetailsModal,
     BillModal,
     BillsTable,
@@ -190,6 +192,7 @@ export default {
     findBill(reset = false) {
       if (this.loading) return;
       if (reset) this.page = 1;
+      this.loading = true
       const filters = {
         from: this.dateFrom,
         to: this.dateTo,

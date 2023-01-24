@@ -22,12 +22,15 @@ export default {
   }),
   watch: {
     date(date) {
-      this.$emit('picked', moment(date).format('YY-MM-DD'))
+      this.$emit('picked', moment(date).format('YYYY-MM-DD'))
     }
   },
   mounted() {
     // if (this.min) this.date = format(parseISO(new Date(this.min).toISOString()), 'yyyy-MM-dd');
-    this.$emit('picked', this.date);
+    this.date = moment(new Date()).format('YYYY-MM-DD');
+    this.$nextTick(() => {
+      this.$emit('picked', this.date);
+    })
   }
 }
 </script>

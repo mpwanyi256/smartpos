@@ -1,7 +1,8 @@
 <template>
     <Table>
-        <template slot="header">
+        <template #header>
             <tr>
+            <th>#</th>
             <th>Bill</th>
             <th>Date</th>
             <th>Time</th>
@@ -15,8 +16,9 @@
             <th>&nbsp;</th>
             </tr>
         </template>
-        <template slot="body">
-            <tr v-for="Order in orders" :key="Order.bill_no">
+        <template #body>            
+          <tr v-for="(Order, idx) in orders" :key="Order.bill_no">
+                <td>{{ (page-1)* itemsPerPage + idx + 1}}</td>
                 <td>{{ Order.bill_no }}</td>
                 <td>{{ Order.date }}</td>
                 <td>{{ Order.time }}</td>
@@ -65,6 +67,16 @@ export default {
       type: Array,
       required: true,
     },
+    itemsPerPage: {
+      type: Number,
+      required: false,
+      default: () => 10
+    },
+    page: {
+      type: Number,
+      required: false,
+      default: () => 1
+    }
   },
   data() {
     return {

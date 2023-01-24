@@ -18,8 +18,8 @@ export default {
     };
   },
   methods: {
-    exportDataToExcel(dataToexport, fileName) {
-      this.$set(this.options, 'title', fileName);
+    exportDataToExcel(dataToexport, fileName = 'Excel export') {
+      this.options['title'] = fileName
       this.$nextTick(() => {
         const csvExporter = new ExportToCsv(this.options);
         csvExporter.generateCsv(dataToexport);
