@@ -42,7 +42,7 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 @import '@/styles/pos.scss';
 
   :v-deep .v-text-field__details {

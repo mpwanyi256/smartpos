@@ -236,8 +236,11 @@ export default {
     },
 
     checkOrderStatus() {
-      if (!this.isPending) this.$eventBus.$emit('view-bill');
-      else this.$eventBus.$emit('show-snackbar', 'Please confirm order.');
+      if (this.isPending) {
+        this.$eventBus.$emit('show-snackbar', 'Please confirm order.');
+      } else {
+        this.$eventBus.$emit('view-bill');
+      }
     },
 
     viewPendingItems(orderItem) {

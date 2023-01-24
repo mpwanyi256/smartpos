@@ -162,7 +162,7 @@ export default {
                   this.$eventBus.$emit('show-snackbar', e.message);
                 });
               }
-            } else this.$eventBus.$emit('add-waiter');
+            } else this.$eventBus.$emit('show-snackbar', 'Please add waiter');
           });
           break;
         case 'Bill':
