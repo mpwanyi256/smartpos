@@ -146,7 +146,7 @@ export default {
     },
 
     printReport() {
-      window.open(this.reportURL, '_blank').focus();
+      window.open(this.reportURL, '_blank')
       // this.$emit('close');
     },
 

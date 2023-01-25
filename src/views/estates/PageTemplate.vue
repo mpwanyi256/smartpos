@@ -47,12 +47,14 @@ export default {
         .header_div {
             height: 56px;
             width: 100%;
-            // display: grid;
-            // grid-template-columns: 40% 60%;
             display: inline-flex;
             background-color: $white;
             color: $black;
             border-bottom: 0.3px solid $border-color;
+
+            h1 {
+                font-size: 2rem;
+            }
 
             > div {
                 display: inline-flex;

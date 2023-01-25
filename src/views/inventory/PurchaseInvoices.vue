@@ -10,12 +10,11 @@
                   @button="createInvModal = true"
                   message="Create new purchase invoice" icon="plus"
                 />
-                <CustomDropdown
-                  text="Select supplier"
+                <v-select
                   :items="suppliers"
-                  item-display-key="name"
-                  @selected="selectedSupplier = $event"
-                  :selected-item="selectedSupplier"
+                  item-title="name"
+                  item-value="id"
+                  v-model="selectedSupplier"
                 />
               </div>
             </th>
@@ -37,13 +36,13 @@
                 <td>{{ invoice.inv_amount_display }}</td>
                 <td>{{ invoice.added_by }}</td>
                 <td>
-                  <v-btn icon @click="viewInvoiceItems(invoice)">
-                    <v-icon>mdi-buffer</v-icon>
+                  <v-btn icon variant="small" @click="viewInvoiceItems(invoice)">
+                    <v-icon>mdi-view-dashboard-edit</v-icon>
                   </v-btn>
                 </td>
                 <td>
-                  <v-btn icon @click="deleteInvoice(invoice.id)">
-                    <v-icon color="red">mdi-delete</v-icon>
+                  <v-btn icon variant="small" @click="deleteInvoice(invoice.id)">
+                    <v-icon>mdi-delete</v-icon>
                   </v-btn>
                 </td>
             </tr>
@@ -76,7 +75,6 @@ import CreateNewInvoice from '@/components/inventory/Purchases/CreateNewInvoice.
 import ConfirmModal from '@/components/generics/ConfirmModal.vue';
 import InvoiceItemsModal from '@/components/inventory/Purchases/InvoiceItemsModal.vue';
 import InfiniteScroll from '@/components/generics/new/InfiniteScroll.vue';
-import CustomDropdown from '@/components/generics/new/CustomDropdown.vue';
 
 export default {
   name: 'PurchasesInvoices',
@@ -88,7 +86,6 @@ export default {
     ConfirmModal,
     InvoiceItemsModal,
     InfiniteScroll,
-    CustomDropdown,
   },
   data() {
     return {

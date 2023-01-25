@@ -10,7 +10,7 @@
           />
         </div>
           <div>
-          <v-text-field dense outlined label="Search" v-model="search" />
+            <BaseTextfield @value="search = $event" placeholder="Search" />
           </div>
       </div>
     </div>

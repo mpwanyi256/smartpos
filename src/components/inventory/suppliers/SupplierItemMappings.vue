@@ -1,13 +1,13 @@
 <template>
     <Table>
-        <template slot="header">
+        <template #header>
             <tr>
                 <th>Supplier's list items</th>
                 <th>Av. price</th>
                 <th>Remove</th>
             </tr>
         </template>
-        <template slot="body">
+        <template #body>
             <tr
                 v-for="item in mappings" :key="item.id"
             >
@@ -15,7 +15,7 @@
                 <td>{{ item.average_price_display === '0' ?
                   'No puchases yet' : item.average_price_display }}</td>
                 <td>
-                    <v-btn class="drop_mapping_btn" icon @click="removeItem(item)">
+                    <v-btn class="drop_mapping_btn" variant="text" @click="removeItem(item)">
                       <v-icon>mdi-delete</v-icon>
                     </v-btn>
                 </td>
@@ -25,7 +25,7 @@
 </template>
 <script>
 import { mapActions } from 'vuex';
-import Table from '@/components/generics/new/Table.vue';
+// import Table from '@/components/generics/new/Table.vue';
 
 export default {
   name: 'SupplierItemMappings',
@@ -36,7 +36,7 @@ export default {
     },
   },
   components: {
-    Table,
+    // Table,
   },
   data() {
     return {

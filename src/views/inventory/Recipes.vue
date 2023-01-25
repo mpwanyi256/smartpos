@@ -19,7 +19,7 @@
                 label="Department"
                 :items="departments"
                 :disabled="loading"
-                item-text="name"
+                item-title="name"
                 item-value="id"
                 v-model="display"
               />

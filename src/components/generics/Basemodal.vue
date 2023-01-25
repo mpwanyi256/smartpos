@@ -5,8 +5,8 @@
       persistent
       :fullscreen="fullscreen">
         <v-card class="modal_content">
-          <v-card-title class="black--text">
-            <v-btn variant="icon" color="black" @click="$emit('close')">
+          <v-card-title class="black--text header-actions">
+            <v-btn icon variant="small" color="black" @click="$emit('close')">
               <v-icon>mdi-close</v-icon>
             </v-btn>
             {{ title ? title : '' }}
@@ -56,13 +56,18 @@ export default {
   }
 
   ::-webkit-scrollbar-thumb {
-      background: $scrollbar-color;
-      border-radius: 1ex;
-      -webkit-border-radius: 1ex;
+    background: $scrollbar-color;
+    border-radius: 1ex;
+    -webkit-border-radius: 1ex;
   }
 
   ::-webkit-scrollbar-corner {
-      background: #000;
+    background: #000;
   }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
 }
 </style>

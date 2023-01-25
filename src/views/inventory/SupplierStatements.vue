@@ -1,20 +1,20 @@
 <template>
   <PageTemplate title="Supplier statements">
-    <template slot="title-actions">
-      <BaseDropDownFab
+    <template #title-actions>
+      <v-select
         ref="BaseDropDownFab"
         v-if="statement.length"
-        icon="cloud-download"
-        title=""
-        :options="downloadOptoins"
+        :items="downloadOptoins"
         color="#31a3dd"
-        @selected="downloadHandler"
+        item-title="text"
+        item-value="text"
+        v-model="selectedDownloadOption"
       />
     </template>
-    <template slot="header-actions">
+    <template #header-actions>
       <v-select dense outlined
         :items="suppliers"
-        item-text="name"
+        item-title="name"
         item-value="id"
         v-model="supplierId"
         label="Select Supplier"
@@ -33,10 +33,10 @@
         Search
       </v-btn>
     </template>
-    <template slot="body">
+    <template #body>
       <LinearLoader v-if="loading" />
       <Table>
-        <template slot="header">
+        <template #header>
             <tr>
               <th>Date</th>
               <th colspan="2">Description</th>
@@ -45,7 +45,7 @@
               <th>Balance</th>
             </tr>
           </template>
-          <template slot="body">
+          <template #body>
             <tr v-for="(entry, i) in statement" :key="`entry-${i}`">
               <td>{{ entry.date }}</td>
               <td colspan="2">{{ entry.title }}</td>
@@ -92,6 +92,7 @@ export default {
         { text: 'Excel' },
         { text: 'PDF' },
       ],
+      selectedDownloadOption: ''
     };
   },
   computed: {
@@ -117,6 +118,9 @@ export default {
     async dateTo() {
       await this.fetchStatement();
     },
+    selectedDownloadOption(val) {
+      this.downloadHandler(val)
+    }
   },
   async created() {
     await this.fetchSuppliers();
@@ -147,8 +151,9 @@ export default {
       }
     },
 
-    downloadHandler(option) {
-      if (option.text === 'Excel') {
+    downloadHandler(text) {
+      console.log('selected', text)
+      if (text === 'Excel') {
         const STATEMENT = this.statement.map((Item) => ({
           Date: Item.date,
           Description: Item.title,

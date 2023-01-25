@@ -30,12 +30,12 @@
                   <td>{{ supplier.contact }}</td>
                   <td>{{ supplier.email }}</td>
                   <td>
-                    <v-btn small raised @click="viewSupplierMappings(supplier)">
+                    <v-btn text variant="small" @click="viewSupplierMappings(supplier)">
                       view
                     </v-btn>
                   </td>
                   <td>
-                      <v-btn small icon @click="updateSupplierInfo(supplier)">
+                      <v-btn icon variant="small" @click="updateSupplierInfo(supplier)">
                           <v-icon>
                               mdi-pencil
                           </v-icon>

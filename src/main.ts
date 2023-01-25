@@ -4,6 +4,8 @@ import firebase from 'firebase'
 import '@mdi/font/css/materialdesignicons.css'
 import Datepicker from '@vuepic/vue-datepicker' //'vuejs-datepicker'
 import DatePickerBeta from '@/components/generics/DatePickerBeta.vue'
+import BaseTextfield from '@/components/generics/BaseTextfield.vue'
+import Table from '@/components/generics/new/Table.vue'
 import '@vuepic/vue-datepicker/dist/main.css';
 require('dotenv').config();
 
@@ -64,6 +66,8 @@ if (isOnline) {
 initializeApp()
 app.component('Datepicker', Datepicker)
 app.component('DatePickerBeta', DatePickerBeta)
+app.component('BaseTextfield', BaseTextfield)
+app.component('Table', Table)
 app.mount('#smartpos')
   .$nextTick(() => {
     postMessage({ payload: 'removeLoading' }, '*')

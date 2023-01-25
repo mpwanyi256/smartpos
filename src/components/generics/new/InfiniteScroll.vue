@@ -11,7 +11,7 @@ export default {
   mixins: [helperMixin],
 };
 </script>
-<style scoped>
+<style>
 .infinite-scroll {
     width: inherit;
     height: inherit;

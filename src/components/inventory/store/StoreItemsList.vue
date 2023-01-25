@@ -2,12 +2,12 @@
   <div class="stores">
     <LoadingSpinner v-if="loading" class="large" />
     <Table v-else>
-      <template slot="header">
+      <template #header>
         <th v-for="(head, index) in headers" :key="index">
           {{ head }}
         </th>
       </template>
-      <template slot="body">
+      <template #body>
           <tr v-for="item in storeItems" :key="`store-item-${item.id}`">
               <td>{{ item.name }}</td>
               <td>{{ item.unit_price_display }}</td>

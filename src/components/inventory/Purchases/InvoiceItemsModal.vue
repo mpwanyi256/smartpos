@@ -6,7 +6,7 @@
     >
         <div class="invoices_display">
             <Table>
-                <template slot="header">
+                <template #header>
                     <tr>
                         <th>Item name</th>
                         <th>Pack size</th>
@@ -16,7 +16,7 @@
                         <th>Amount</th>
                     </tr>
                 </template>
-                <template slot="body">
+                <template #body>
                     <tr v-for="(item, i) in invoiceItems" :key="i">
                         <td>{{ item.name.toUpperCase() }}</td>
                         <td>{{ item.pack_size }}</td>
