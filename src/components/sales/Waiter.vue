@@ -1,13 +1,13 @@
 <template>
     <div class="waiter">
         <div class="avator">
-            <Avatar src="" class="large" />
+          <Avatar src="" class="large" />
         </div>
         <div class="sales-info">
-            <p class="name">{{ fullName }}</p>
-            <p class="orders">{{ orders }}</p>
-            <!-- <p class="settled">22 Settled</p>
-            <p class="pending">10 Pending</p> -->
+          <p class="name">{{ fullName }}</p>
+          <p class="orders">{{ orders }}</p>
+          <!-- <p class="settled">22 Settled</p>
+          <p class="pending">10 Pending</p> -->
         </div>
     </div>
 </template>
@@ -76,6 +76,7 @@ export default {
         }
 
         .name {
+          font-size: 1rem !important;
           color: $black;
           font-size: 16px;
         }

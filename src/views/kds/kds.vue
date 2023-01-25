@@ -24,18 +24,16 @@
             <div>
                 <div>
                   <v-select
-                    outlined dense
-                    label="Display type"
+                    outlined density="compact"
                     :items="columns"
-                    item-text="name"
+                    item-title="name"
                     item-value="id"
                     v-model="selectedDisplayColumn"
                   />
                   <v-select
-                    outlined dense
-                    label="Department"
+                    outlined density="compact"
                     :items="departments"
-                    item-text="name"
+                    item-title="name"
                     item-value="id"
                     v-model="selectedDepartment"
                   />
@@ -229,7 +227,7 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 @import '../../styles/constants.scss';
 
 .aidio-player {
@@ -237,7 +235,7 @@ export default {
 }
 
 .kds {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     margin: 0;
     background-color: $bg_color;

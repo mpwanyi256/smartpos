@@ -3,10 +3,11 @@
         <div class="option">
             <h2>Bill: {{ billTotal }}</h2>
             <v-select outlined class="settle_options"
-                v-model="settlementId"
-                :items="paymentSettlements"
-                item-text="name"
-                item-value="id"
+              v-model="settlementId"
+              :items="paymentSettlements"
+              item-title="name"
+              item-value="id"
+              single-line
             />
         </div>
         <v-btn block

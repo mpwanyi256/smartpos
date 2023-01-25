@@ -1,10 +1,10 @@
 <template>
     <Basemodal
         :title="`Sales report ${selectedDate}`"
-        :size="1200" @close="$emit('close')"
-        :fullscreen="true"
+        :size="1200"
+        @close="$emit('close')"
         >
-        <template slot="action" v-if="managerCanViewSales">
+        <template #action v-if="managerCanViewSales">
           <div ref="salesReport" class="report-actions">
             <BaseTooltip
               class="pdf"
@@ -20,7 +20,7 @@
               @button="printReport"
               color="red"
               message="Print report"
-              icon="file-pdf"
+              icon="file-pdf-box"
             />
             <DatePickerBeta
               message="Select date"
@@ -102,18 +102,14 @@ export default {
   },
   computed: {
     ...mapGetters('auth', ['user']),
+    ...mapGetters('network', ['serverIP']),
 
     companyInfo() {
       return this.user.company_info;
     },
 
-    serverIP() {
-      const IPAddress = process.env.VUE_APP_SERVER_URL;
-      return `${IPAddress || 'http://localhost:8020'}/papi/`;
-    },
-
     reportURL() {
-      return `${this.serverIP}pdf/salesReport.php?report=${this.selectedDate},${this.user.company_id}`;
+      return `${this.serverIP}/pdf/salesReport.php?report=${this.selectedDate},${this.user.company_id}`;
     },
   },
   watch: {
@@ -150,7 +146,7 @@ export default {
     },
 
     printReport() {
-      window.open(this.reportURL, '_blank').focus();
+      window.open(this.reportURL, '_blank')
       // this.$emit('close');
     },
 
@@ -177,11 +173,14 @@ export default {
 </script>
 <style scoped lang="scss">
 @import '@/styles/constants.scss';
-
   .report-actions {
     display: flex;
     flex-direction: row;
     gap: 10px;
+  }
+
+  :v-deep .v-card-title {
+    display: flex;
   }
 
   .loading_section {

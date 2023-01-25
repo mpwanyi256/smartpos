@@ -1,26 +1,28 @@
 <template>
     <Basemodal :size="700" :title="modalTitle" @close="$emit('close')">
-        <template slot="action">
-            <v-btn v-if="!isPending" small @click="performBillPrint"
+        <template #action>
+            <v-btn variant="small" v-if="!isPending" small @click="performBillPrint"
                 class="ma-2 float-right" outlined fab color="teal">
                 <v-icon>mdi-printer</v-icon>
             </v-btn>
         </template>
-        <v-alert v-if="isPending" outlined dense type="warning" class="ma-2">
+        <!-- <v-alert v-if="isPending" outlined dense type="warning" class="ma-2">
             {{ `Order has ${isPending} unconfirmed order item${isPending > 1 ? 's' : ''}
             So you cannot print Bill.` }}
-        </v-alert>
+        </v-alert> -->
         <div ref="tableView">
             <PageAlert v-if="errorMessage" :message="errorMessage" @close="errorMessage= ''" />
             <div class="order_view">
-            <table class="tableView" style="margin:0px;padding:0px;font-family:sans-serif;
+            <table style="margin:0px;padding:0px;font-family:sans-serif;
             width: 100%;background-color:rgba(255, 255, 255, 0.91);top:0;left:0;">
-                <tr style="text-align:center;"><th colspan="4">
-                    <small>{{ company.company_name }}</small></th>
-                    </tr>
-                <tr style="text-align:center;font-size:12px;">
-                    <td colspan="4">{{ company.company_location }}
-                        <br> {{ company.company_mobile }}</td>
+                <tr style="text-align:center;">
+                    <th colspan="4" style="text-align:center;top:0;bottom:0;">
+                        {{ company.company_name }}
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align:center;font-size:12px;">{{ company.company_location }}
+                    <br> {{ company.company_mobile }}</td>
                 </tr>
                 <tr style="text-align:center;font-size:14px;">
                     <td colspan="4"><small>
@@ -225,7 +227,7 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 @import '@/styles/pos.scss';
 
     .tableView .order_view {

@@ -1,14 +1,14 @@
 <template>
     <PageTemplate title="Property Units">
-      <template slot="header-actions">
-        <BaseTextfield v-model="search" placeholder="Search" />
+      <template #header-actions>
+        <BaseTextfield @value="search = $event" placeholder="Search" />
         <v-btn fab small @click="createUnit = true">
             <v-icon>mdi-plus</v-icon>
         </v-btn>
       </template>
-      <template slot="body">
+      <template #body>
         <Table>
-            <template slot="header">
+            <template #header>
                 <tr>
                 <th>#</th>
                 <th>Unit name</th>
@@ -20,7 +20,7 @@
                 <th>&nbsp;</th>
                 </tr>
             </template>
-            <template slot="body">
+            <template #body>
                 <tr v-for="(unit, i) in units" :key="`propertyUnit${unit.unit_id}`">
                     <td>{{ ++i }}</td>
                     <td>{{ unit.unit_name }}</td>

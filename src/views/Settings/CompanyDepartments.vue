@@ -1,25 +1,25 @@
 <template>
     <PageTemplate class="page" title="Company departments">
-        <template slot="header-actions">
-        <BaseTextfield v-model="search" placeholder="Search" />
+      <template #header-actions>
+        <BaseTextfield @value="search = $event" placeholder="Search" />
         <BaseTooltip
-            @button="createDepartment = true"
-            message="Create new department"
-            icon="plus"
-            color="black"
+          @button="createDepartment = true"
+          message="Create new department"
+          icon="plus"
+          color="black"
         />
       </template>
-      <template slot="body">
+      <template #body>
         <div class="table_display">
             <Table>
-                <template slot="header">
+                <template #header>
                     <tr>
                         <th>#</th>
                         <th>Name</th>
                         <th>&nbsp;</th>
                     </tr>
                 </template>
-                <template slot="body">
+                <template #body>
                     <tr v-for="(department, i) in departments" :key="`department_${department.id}`">
                         <td>{{ ++i }}</td>
                         <td>{{ department.name }}</td>

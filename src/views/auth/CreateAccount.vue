@@ -8,21 +8,21 @@
         <div class="company_info">
             <div class="frm_input">
                 <label>Company name</label>
-                <BaseTextfield :preset="name" v-model="name" placeholder="Company name" />
+                <BaseTextfield :preset="name" @value="name = $event" placeholder="Company name" />
             </div>
             <div class="frm_input">
                 <label>Address</label>
                 <BaseTextfield :preset="address"
-                v-model="address" placeholder="Company address" />
+                @value="address = $event" placeholder="Company address" />
             </div>
             <div class="frm_input">
                 <label>Email address</label>
-                <BaseTextfield :preset="email" v-model="email" placeholder="Email address" />
+                <BaseTextfield :preset="email" @value="email = $event" placeholder="Email address" />
             </div>
             <div class="frm_input">
                 <label>Contact number</label>
                 <BaseTextfield :preset="contact"
-                v-model="contact" placeholder="Contact number" />
+                @value="contact = $event" placeholder="Contact number" />
             </div>
             <div class="frm_input">
                 <label>Business type</label>
@@ -38,7 +38,7 @@
             <div class="frm_input">
                 <label>Create password</label>
                 <BaseTextfield :preset="password"
-                v-model="password" inputType="password" placeholder="password" />
+                @value="password = $event" inputType="password" placeholder="password" />
             </div>
         </div>
         <div class="create_account_btn pl-5 pr-5">

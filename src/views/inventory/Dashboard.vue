@@ -3,7 +3,7 @@
     <LoadingSpinner class="large" v-if="loading" />
     <div v-else class="inventory-items">
       <Table>
-        <template slot="header">
+        <template #header>
           <th>
             <div class="download">
               <BaseTooltip
@@ -11,7 +11,7 @@
                 message="Download csv" icon="download"
                 color="green"
               />
-              <BaseTextfield v-model="search" placeholder="Search" />
+              <BaseTextfield @value="search = $event" placeholder="Search" />
             </div>
           </th>
           <th>Pack Size</th>
@@ -20,7 +20,7 @@
           <th>In Stock</th>
           <th>Stock Value</th>
         </template>
-        <template slot="body">
+        <template #body>
             <tr v-for="(item, i) in inventoryFiltered" :key="`inv-item-${i}`">
                 <td>{{ item.item_name }}</td>
                 <td>{{ item.pack_size }}</td>
@@ -40,7 +40,6 @@ import { mapActions, mapGetters } from 'vuex';
 import Table from '@/components/generics/new/Table.vue';
 import BaseTooltip from '@/components/generics/BaseTooltip.vue';
 import LoadingSpinner from '@/components/generics/LoadingSpinner.vue';
-import BaseTextfield from '@/components/generics/BaseTextfield.vue';
 import Pagination from '@/components/generics/new/Pagination.vue';
 import DownloadCSVMixin from '@/mixins/DownloadCSVMixin';
 
@@ -51,7 +50,6 @@ export default {
   components: {
     Table,
     LoadingSpinner,
-    BaseTextfield,
     BaseTooltip,
     Pagination,
   },

@@ -1,9 +1,9 @@
 <template>
     <PageTemplate title="Supplier payments">
-        <template slot="header-actions">
+        <template #header-actions>
           <v-select dense outlined
             :items="suppliers"
-            item-text="name"
+            item-title="name"
             item-value="id"
             v-model="supplierId"
             label="Supplier"
@@ -18,15 +18,15 @@
             @picked="dateTo = $event"
             :max="dateToday"
           />
-          <BaseTextfield v-model="search" placeholder="Search" />
+          <BaseTextfield @value="search = $event" placeholder="Search" />
           <v-btn fab small @click="openPaymentModal = true">
               <v-icon>mdi-plus</v-icon>
           </v-btn>
       </template>
-      <template slot="body">
+      <template #body>
         <LinearLoader v-if="loading" />
         <Table>
-          <template slot="header">
+          <template #header>
             <tr>
               <th>#</th>
               <th>Date</th>
@@ -39,7 +39,7 @@
               <th>&nbsp;</th>
             </tr>
           </template>
-          <template slot="body">
+          <template #body>
             <tr v-for="(payment, i) in filteredPayments" :key="`payment-${payment.id}`">
                 <td>{{ ++i }}</td>
                 <td>{{ payment.payment_date }}</td>
@@ -105,7 +105,7 @@ export default {
       dateFrom: '',
       dateTo: '',
       suppliers: [],
-      supplierId: '0',
+      supplierId: 0,
       selectedPayment: null,
       openConfirmModal: false,
     };
@@ -150,10 +150,10 @@ export default {
     },
   },
   async created() {
-    this.$nextTick(async () => {
-      await this.fetchPayments();
-      await this.fetchSuppliers();
-    });
+    await Promise.all([
+      this.fetchPayments(),
+      this.fetchSuppliers()
+    ])
   },
   methods: {
     ...mapActions('inventory', ['updateItem']),

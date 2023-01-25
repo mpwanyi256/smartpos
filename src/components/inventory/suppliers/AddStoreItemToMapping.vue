@@ -1,20 +1,20 @@
 <template>
     <Table>
-        <template slot="header">
+        <template #header>
             <tr>
               <th colspan="2">
-                <BaseTextfield v-model="search" placeholder="Search ..." />
+                <BaseTextfield @value="search = $event" placeholder="Search ..." />
               </th>
             </tr>
         </template>
-        <template slot="body">
+        <template #body>
             <tr
-                v-for="item in filteredStoreItems" :key="item.id"
+              v-for="item in filteredStoreItems" :key="item.id"
             >
                 <td>{{ item.name }}</td>
                 <td>
-                    <v-btn :disabled="exists(item)" small @click="addItem(item)">
-                        Add to list
+                    <v-btn icon variant="small" :disabled="exists(item)" small @click="addItem(item)">
+                      <v-icon>mdi-plus</v-icon>
                     </v-btn>
                 </td>
             </tr>

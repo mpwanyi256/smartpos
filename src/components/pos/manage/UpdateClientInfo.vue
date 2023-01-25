@@ -8,7 +8,7 @@
                         <label>First name</label>
                         <div>
                             <BaseTextfield
-                                v-model="firstname"
+                                @value="firstname = $event"
                                 :preset="firstname"
                                 placeholder="First name"
                             />
@@ -16,7 +16,7 @@
                     </div><div>
                         <label>Last name</label>
                         <BaseTextfield
-                            v-model="lastname"
+                            @value="lastname = $event"
                             :preset="lastname"
                             placeholder="Last name"
                         />
@@ -26,7 +26,7 @@
                     <div>
                         <label>Address</label>
                         <BaseTextfield
-                        v-model="address"
+                        @value="address = $event"
                         :preset="address"
                         placeholder="Address"
                         />
@@ -34,7 +34,7 @@
                     <div>
                         <label>Email address</label>
                         <BaseTextfield
-                            v-model="email"
+                            @value="email = $event"
                             :preset="email"
                             placeholder="email"
                         />
@@ -44,7 +44,7 @@
                     <div>
                         <label>Contact number</label>
                         <BaseTextfield
-                            v-model="contactNumber"
+                            @value="contactNumber = $event"
                             :preset="contactNumber"
                             placeholder="+256780101601"
                         />
@@ -52,7 +52,7 @@
                     <div>
                         <label>Tin number</label>
                         <BaseTextfield
-                            v-model="tinNumber"
+                            @value="tinNumber = $event"
                             :preset="tinNumber"
                             placeholder="Tax identity number"
                         />

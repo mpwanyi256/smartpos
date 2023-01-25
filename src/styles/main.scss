@@ -13,3 +13,21 @@ body {
     top: 0;
     bottom: 0;
 }
+// Override styles
+.v-expansion-panel-text__wrapper {
+    padding: 0px !important;
+}
+
+.v-card-title {
+ display: flex;
+}
+
+.v-input__control {
+    display: flex;
+    justify-content: center;
+    grid-area: control;
+    // max-height: 42px
+    font-family: -apple-system,blinkmacsystemfont,"Segoe UI",roboto,oxygen,ubuntu,cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    line-height: 1.5;
+    padding: 0 5px;
+}

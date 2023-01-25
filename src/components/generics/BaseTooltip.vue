@@ -2,7 +2,7 @@
   <v-btn
     :loading="loading"
     :disabled="disabled"
-    :size="small ? 'x-small' : ''"
+    :size="small ? 'small' : ''"
     variant="icon"
     :class="color ? color : 'black--text'" dark
     @click="$emit('button')"

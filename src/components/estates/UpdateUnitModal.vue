@@ -7,11 +7,11 @@
         </div>
         <div v-else class="create_landlord">
           <label>Unit name</label>
-          <BaseTextfield v-model="unit.unit_name"
+          <BaseTextfield @value="unit.unit_name = $event"
             :preset="unit.unit_name" placeholder="Unit name" />
             <label>Monthly rate</label>
             <BaseTextfield
-                v-model="unit.rate_charged"
+                @value="unit.rate_charged = $event"
                 :preset="unit.rate_charged"
                 inputType="number"
                 placeholder="Monthly rate"

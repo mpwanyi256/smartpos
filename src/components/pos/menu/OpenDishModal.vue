@@ -6,15 +6,15 @@
         <div class="open-dish">
             <div class="form-control">
                 <label>Name</label>
-                <BaseTextfield placeholder="Open dish name" v-model="name"/>
+                <BaseTextfield placeholder="Open dish name" @value="name = $event"/>
             </div>
             <div class="form-control">
                 <label>Dishes</label>
-                <BaseTextfield inputType="number" placeholder="Number of dishes" v-model="paxes"/>
+                <BaseTextfield inputType="number" placeholder="Number of dishes" @value="paxes = $event"/>
             </div>
             <div class="form-control">
                 <label>Unit Price</label>
-                <BaseTextfield inputType="number" placeholder="Unit price" v-model="pricePerPax"/>
+                <BaseTextfield inputType="number" placeholder="Unit price" @value="pricePerPax = $event"/>
             </div>
             <div class="form-control">
                 <label>Department</label>

@@ -3,16 +3,15 @@
       v-model="dialog"
       :width="size ? size : 500"
       persistent
-      activator="parent"
       :fullscreen="fullscreen">
         <v-card class="modal_content">
-          <v-card-title class="black--text">
+          <v-card-title class="black--text header-actions">
+            <v-btn icon variant="small" color="black" @click="$emit('close')">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
             {{ title ? title : '' }}
             <v-spacer></v-spacer>
             <slot name="action" />
-            <v-btn variant="icon" color="black" @click="$emit('close')">
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
           </v-card-title>
           <slot></slot>
         </v-card>
@@ -43,7 +42,7 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 @import '@/styles/pos.scss';
 
   :v-deep .v-text-field__details {
@@ -57,13 +56,18 @@ export default {
   }
 
   ::-webkit-scrollbar-thumb {
-      background: $scrollbar-color;
-      border-radius: 1ex;
-      -webkit-border-radius: 1ex;
+    background: $scrollbar-color;
+    border-radius: 1ex;
+    -webkit-border-radius: 1ex;
   }
 
   ::-webkit-scrollbar-corner {
-      background: #000;
+    background: #000;
   }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
 }
 </style>

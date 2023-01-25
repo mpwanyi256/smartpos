@@ -20,7 +20,7 @@
                     outlined
                     label="Select Client"
                     v-model="selectedClient" dense
-                    item-text="full_name"
+                    item-title="full_name"
                     item-value="id"
                     :items="clientList"
                   />

@@ -1,7 +1,7 @@
 <template>
     <PageTemplate class="page" title="Tenant contracts">
-      <template slot="header-actions">
-        <BaseTextfield v-model="search" placeholder="Search" />
+      <template #header-actions>
+        <BaseTextfield @value="search = $event" placeholder="Search" />
         <BaseTooltip
             @button="showCreateContractModal = true"
             message="Create new contract"
@@ -9,11 +9,11 @@
             color="black"
         />
       </template>
-      <template slot="body">
+      <template #body>
         <div class="table_display">
             <div class="contracts_display">
                 <Table>
-                    <template slot="header">
+                    <template #header>
                         <tr>
                             <th>#</th>
                             <th>Full name</th>

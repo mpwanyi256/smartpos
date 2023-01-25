@@ -3,7 +3,7 @@
         <div class="inv_number">
             <p>Enter invoice No.</p>
             <BaseTextfield :disabled="disableAlter"
-              v-model.trim="invNumber" placeholder="inv No." />
+              @value="invNumber = $event" placeholder="inv No." />
         </div>
         <div class="inv_date">
             <p>Inv date</p>

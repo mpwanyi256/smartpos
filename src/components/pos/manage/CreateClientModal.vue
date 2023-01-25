@@ -15,7 +15,7 @@
             <v-card flat>
               <v-card-title>
                 <div class="selected-client">
-                  <BaseTextfield v-model="search" />
+                  <BaseTextfield @input="search = $event" />
                 </div>
                 <div v-if="errorMessage">{{ errorMessage }}</div>
               </v-card-title>

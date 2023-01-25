@@ -7,19 +7,18 @@
               <div class="store_column">
                 <p v-if="message" class="red--text text-center ma-2">{{ message }}</p>
                 <Table>
-                  <template slot="header">
+                  <template #header>
                     <tr>
                       <th colspan="2">
                         <BaseTextfield
-                          v-model.trim="search"
+                          @value="search = $event"
                           class="input_field"
                           placeholder="Search ..."
                         />
                       </th>
                     </tr>
                   </template>
-                  <template slot="body">
-                    <tr
+                  <template #body>                    <tr
                       v-for="i in storeItems"
                       :key="i.id">
                       <td>{{ i.name }}</td>

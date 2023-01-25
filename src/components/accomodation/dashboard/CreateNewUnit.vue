@@ -7,14 +7,14 @@
             <div class="frm_entry">
                 <label>Room name</label>
                 <BaseTextfield
-                  v-model="name"
+                  @value="name = $event"
                   placeholder="Unit name"
                 />
             </div>
             <div class="frm_entry">
                 <label>Daily Rate</label>
                 <BaseTextfield
-                  v-model="price"
+                  @value="price = $event"
                   inputType="number"
                   placeholder="Unit price"
                 />

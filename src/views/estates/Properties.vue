@@ -5,7 +5,7 @@
                 <h1>Properties</h1>
             </div>
             <div>
-                <BaseTextfield v-model="search" placeholder="Search" />
+                <BaseTextfield @value="search = $event" placeholder="Search" />
                 <v-btn fab small @click="addProperty = true">
                     <v-icon>mdi-plus</v-icon>
                 </v-btn>
@@ -13,7 +13,7 @@
         </div>
         <div class="clients_list">
             <Table>
-                <template slot="header">
+                <template #header>
                   <tr>
                       <th>#</th>
                       <th>Property name</th>
@@ -22,7 +22,7 @@
                       <th>&nbsp;</th>
                   </tr>
                 </template>
-                <template slot="body">
+                <template #body>
                     <tr v-for="(property, i) in filteredProperties" :key="`client-info-${i}`">
                         <td>{{ ++i }}</td>
                         <td>

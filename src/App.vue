@@ -2,11 +2,14 @@
   <v-app>
     <router-view></router-view>
     <v-snackbar
-      v-model="snackbar" top
+      v-model="snackbar"
+      :timeout="5000"
+      color="#337ab7"
+      position="top"
     >
       {{ snackMessage }}
-      <template v-slot:action="{ attrs }">
-        <v-btn color="white" text v-bind="attrs"
+      <template v-slot:actions>
+        <v-btn color="white" variant="text" v-bind="attrs"
           @click="snackbar = false"
         >
           Close

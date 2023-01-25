@@ -1,14 +1,14 @@
 <template>
     <PageTemplate title="Landlords">
-      <template slot="header-actions">
-          <BaseTextfield v-model="search" placeholder="Search" />
+      <template #header-actions>
+          <BaseTextfield @value="search = $event" placeholder="Search" />
           <v-btn fab small @click="openCreate">
               <v-icon>mdi-plus</v-icon>
           </v-btn>
       </template>
-      <template slot="body">
+      <template #body>
         <Table>
-          <template slot="header">
+          <template #header>
             <tr>
               <th>#</th>
               <th>First name</th>
@@ -18,7 +18,7 @@
               <th>&nbsp;</th>
             </tr>
           </template>
-          <template slot="body">
+          <template #body>
             <tr v-for="landlord in filteredLandlords" :key="`landlord${landlord.id}`">
               <td>{{ landlord.id }}</td>
               <td>{{ landlord.first_name }}</td>

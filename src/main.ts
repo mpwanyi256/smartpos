@@ -2,8 +2,11 @@ import { createApp } from 'vue'
 import axios from 'axios'
 import firebase from 'firebase'
 import '@mdi/font/css/materialdesignicons.css'
-// import dotEnv from 'dotenv'
-// dotEnv.config()
+import Datepicker from '@vuepic/vue-datepicker' //'vuejs-datepicker'
+import DatePickerBeta from '@/components/generics/DatePickerBeta.vue'
+import BaseTextfield from '@/components/generics/BaseTextfield.vue'
+import Table from '@/components/generics/new/Table.vue'
+import '@vuepic/vue-datepicker/dist/main.css';
 require('dotenv').config();
 
 import "./style.css"
@@ -21,8 +24,8 @@ import './styles/main.scss';
 import eventBus from './plugins/Eventbus'
 
 // Setup axios
-const addressSet = localStorage.getItem('smartpos_ipaddress_set');
-const serverUrlToUse = addressSet || 'https://www.pos.prodevkampala.com';
+const addressSet = localStorage.getItem('smartpos_ipaddress_set')
+const serverUrlToUse = addressSet || 'https://www.pos.prodevkampala.com'
 axios.defaults.baseURL = `${serverUrlToUse}/papi/`;
 
 const firebaseAccountConfig = {
@@ -45,8 +48,8 @@ app.use(store)
 // App setup
 import initializeApp from './plugins/initializeApp'
 
-const isOnline = window.navigator.onLine;
-store.dispatch('network/setConnectionStatus', isOnline);
+const isOnline = window.navigator.onLine
+store.dispatch('network/setConnectionStatus', isOnline)
 
 // initialize firebase
 if (isOnline) {
@@ -61,6 +64,10 @@ if (isOnline) {
   }
 
 initializeApp()
+app.component('Datepicker', Datepicker)
+app.component('DatePickerBeta', DatePickerBeta)
+app.component('BaseTextfield', BaseTextfield)
+app.component('Table', Table)
 app.mount('#smartpos')
   .$nextTick(() => {
     postMessage({ payload: 'removeLoading' }, '*')

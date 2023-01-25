@@ -5,14 +5,14 @@
         <div class="outlet_frm">
             <label>Outlet name</label>
             <BaseTextfield
-                v-model="outlet.name"
+                @value="outlet.name = $event"
                 :preset="outlet.name"
                 placeholder="Outlet name"
                 :inputType="'text'"
             />
             <label>Location</label>
             <BaseTextfield
-                v-model.trim="outlet.location"
+                @value="outlet.location = $event"
                 :preset="outlet.location"
                 placeholder="Outlet location"
                 :inputType="'text'"
@@ -20,7 +20,7 @@
 
             <label>Currency</label>
             <BaseTextfield
-                v-model.trim="outlet.currency"
+                @value="outlet.currency = $event"
                 :preset="outlet.currency"
                 placeholder="Outlet currency"
                 :inputType="'text'"

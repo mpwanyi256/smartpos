@@ -4,27 +4,27 @@
       :size="700" @close="$emit('close')">
         <LinearLoader v-if="loading || sendingEmail" class="mt-2" />
         <div class="day_switch">
-            <h1>{{ `Switch Day ${selectedDate}` }}</h1>
-            <DatePickerBeta
-              message="Select date"
-              @picked="selectedDate = $event"
-            />
-            <h3 class="err_message">{{ message }}</h3>
-            <div>
-                <v-btn
-                  :disabled="!selectedDate || sendingEmail"
-                  block
-                  @click="switchToNewDay"
-                >
-                  Open day
-                </v-btn>
-            </div>
+          <h1>{{ `Switch Day ${selectedDate}` }}</h1>
+          <DatePickerBeta
+            message="Select date"
+            @picked="selectedDate = $event"
+          />
+          <h3 class="err_message">{{ message }}</h3>
+          <div>
+              <v-btn
+                :disabled="!selectedDate || sendingEmail"
+                block
+                @click="switchToNewDay"
+              >
+                Open day
+              </v-btn>
+          </div>
         </div>
     </Basemodal>
 </template>
 <script>
 import Basemodal from '@/components/generics/Basemodal.vue';
-import DatePickerBeta from '@/components/generics/DatePickerBeta.vue';
+// import DatePickerBeta from '@/components/generics/DatePickerBeta.vue';
 import LinearLoader from '@/components/generics/Loading.vue';
 import EmailMixin from '@/mixins/EmailMixin';
 
@@ -43,7 +43,7 @@ export default {
   },
   components: {
     Basemodal,
-    DatePickerBeta,
+    // DatePickerBeta,
     LinearLoader,
   },
   data() {

@@ -3,7 +3,7 @@
       <v-expansion-panels multiple v-model="panel">
       <v-expansion-panel
         v-for="(section,i) in sections"
-        :key="i"
+        :key="`smart-pos-section${section.id}__${i}`"
       >
       <v-expansion-panel-title :class="section.has_orders ? 'has-orders' : ''">
         <div>
@@ -141,10 +141,6 @@ export default {
   margin: 5px;
   color: $black;
   font-size: 14px;
-}
-
-:v-deep .v-expansion-panel-text__wrapper {
-  padding: 0px !important;
 }
 
 .has-orders {

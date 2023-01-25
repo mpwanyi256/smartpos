@@ -13,7 +13,7 @@
         @click="listen(action.name)"
         v-if="isAllowedAction(action.name)"
       >
-        <v-icon class="icon">{{ action.icon }}</v-icon>
+        <v-icon class="icon">{{ getIcon(action.name) }}</v-icon>
         <p class="name">{{ action.name }}
         </p>
       </div>
@@ -92,11 +92,13 @@ export default {
   methods: {
     ...mapActions('pos', ['addOrderItem', 'filterOrders', 'post']),
 
+    getIcon(action) {
+      return this.actions.find(a => a.name === action)?.icon
+    },
+
     addWaiterAction() {
       if (this.companyType === 1) {
-        this.actions.unshift(
-          { name: 'Waiter', icon: 'mdi-account-outline' },
-        );
+        this.actions = [{ name: 'Waiter', icon: 'mdi-account-outline' }, ...this.actions]
       }
     },
 
@@ -160,7 +162,7 @@ export default {
                   this.$eventBus.$emit('show-snackbar', e.message);
                 });
               }
-            } else this.$eventBus.$emit('add-waiter');
+            } else this.$eventBus.$emit('show-snackbar', 'Please add waiter');
           });
           break;
         case 'Bill':

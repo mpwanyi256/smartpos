@@ -47,10 +47,16 @@ export default {
     ...mapGetters('auth', ['user']),
   },
   async created() {
-    await this.fetchDepartmentSales();
-    await this.fetchSettlementsSammary();
-    await this.fetchWaitersOverview();
-    await this.fetchOrders();
+    await Promise.all([
+      this.fetchDepartmentSales(),
+      this.fetchSettlementsSammary(),
+      this.fetchWaitersOverview(),
+      this.fetchOrders()
+    ])
+    // await this.fetchDepartmentSales();
+    // await this.fetchSettlementsSammary();
+    // await this.fetchWaitersOverview();
+    // await this.fetchOrders();
   },
   methods: {
     ...mapActions('sales', ['post']),

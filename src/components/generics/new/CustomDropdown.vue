@@ -19,7 +19,7 @@
         </v-btn>
       </template>
         <div class="display-items">
-            <BaseTextfield class="search" v-model="search" />
+            <BaseTextfield class="search" @value="search = $event" />
             <div class="items-list">
                 <v-list>
                     <v-list-item

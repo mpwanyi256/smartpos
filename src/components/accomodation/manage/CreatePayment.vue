@@ -7,9 +7,9 @@
                 <p>{{ `Amount (${booking.currency})` }}</p>
                 <p>
                     <BaseTextfield
-                        v-model="amountPaid"
-                        inputType="number"
-                        :placeholder="`Amount in (${booking.currency})`"
+                      @value="amountPaid = $event"
+                      inputType="number"
+                      :placeholder="`Amount in (${booking.currency})`"
                     />
                 </p>
             </div>

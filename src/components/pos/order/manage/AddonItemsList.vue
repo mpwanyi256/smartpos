@@ -1,6 +1,6 @@
 <template>
     <div class="addons-list">
-      <BaseTextfield v-model="search" placeholder="Search for an item" />
+      <BaseTextfield @value="search = $event" placeholder="Search for an item" />
       <div class="menu">
         <template v-if="loading">
           <LoadingKds

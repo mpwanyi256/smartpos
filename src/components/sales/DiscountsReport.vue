@@ -17,7 +17,8 @@
         </div>
       </div>
       <div class="orders_table">
-          <LinearLoader v-if="loading" />
+        <LinearLoader v-if="loading" />
+        <template v-else>
           <v-btn
             v-if="discounts.length > 0"
             small
@@ -27,7 +28,7 @@
             {{ `Export ${discounts.length} items to csv` }}
           </v-btn>
           <Table>
-            <template slot="header">
+            <template #header>
                   <tr>
                       <th>Bill No.</th>
                       <th>DATE</th>
@@ -37,7 +38,7 @@
                       <th>&nbsp;</th>
                   </tr>
             </template>
-            <template slot="body">
+            <template #body>              
               <tr v-for="discount in discounts" :key="`discount-${discount.bill_no}`">
                   <td>{{ discount.bill_no }}</td>
                   <td>{{ discount.date }}</td>
@@ -55,6 +56,7 @@
             :order="selectedOrder"
             @close="showBillModal = false"
           />
+        </template>
       </div>
   </div>
 </template>
@@ -131,13 +133,13 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 @import '@/styles/constants.scss';
 
   .find_bill {
       background-color: $white;
       font-family: $font-style;
-      min-height: 100%;
+      height: calc(100vh - 52px);
       border-left: 0.5px solid $border-color;
       display: flex;
       flex-direction: column;
@@ -181,6 +183,7 @@ export default {
 
       .orders_table {
         overflow-y: auto;
+        height: calc(100vh - 120px);;
       }
   }
 </style>

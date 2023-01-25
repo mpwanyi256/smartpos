@@ -6,7 +6,7 @@
             Menu Item categories</h2>
         </div>
         <div class="search_area">
-            <v-text-field :label="`Search`"
+            <v-text-field
               v-model="key" dense outlined placeholder="Search" />
             <BaseTooltip message="Create new category" icon="plus"
               @button="createCategory = true" />
@@ -16,7 +16,7 @@
     <div class="categories_listing">
       <div class="menu_items_display_section">
         <Table>
-          <template slot="header">
+          <template #header>
             <tr>
               <th>#</th>
               <th>Category name</th>
@@ -25,7 +25,7 @@
               <th class="text-right">Show On Menu</th>
             </tr>
           </template>
-          <template slot="body">
+          <template #body>
             <tr v-for="(category, i) in filteredCategories" :key="`category${category.id}`">
               <td>{{ i+1 }}</td>
               <td>
@@ -34,13 +34,14 @@
                 />
               </td>
               <td>
-                <v-btn small @click="hideCategoryMenuItems(category.id, 1)">Hide Menu Items</v-btn>
+                <v-btn variant="text" small @click="hideCategoryMenuItems(category.id, 1)">Hide</v-btn>
               </td>
               <td>
-                <v-btn small @click="hideCategoryMenuItems(category.id, 0)">Show Menu Items</v-btn>
+                <v-btn variant="text" small @click="hideCategoryMenuItems(category.id, 0)">Show</v-btn>
               </td>
               <td>
                 <v-btn small dark @click="updateCategoryStatus(category)"
+                  variant="text"
                   class="toggle_hide_button float-right"
                   :color="category.status == 1 ? 'red darken-3' : 'green darken-3'">
                   {{ category.status == 1 ? 'No' : 'Yes' }}

@@ -15,11 +15,15 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="scss">
     .payment {
       display: flex;
       flex-direction: column;
       text-align: center;
       background-color: white;
+
+      h1 {
+        font-size: 2rem;
+      }
     }
 </style>

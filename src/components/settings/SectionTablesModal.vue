@@ -4,14 +4,14 @@
     :size="800" @close="$emit('close')">
         <div class="tables">
             <Table>
-                <template slot="header">
+                <template #header>
                 <tr>
                     <th>
                       <div class="add_options">
                         <v-btn icon @click="openCreateTableModal = true">
                           <v-icon>mdi-plus</v-icon>
                         </v-btn>
-                        <BaseTextfield v-model="search" placeholder="Search" />
+                        <BaseTextfield @value="search = $event" placeholder="Search" />
                       </div>
                     </th>
                     <th>
@@ -19,7 +19,7 @@
                     </th>
                 </tr>
             </template>
-            <template slot="body">
+            <template #body>
                 <tr v-for="(table, i) in selectedSection" :key="i">
                     <td class="table_name"
                       @click="updateTableName(table)"

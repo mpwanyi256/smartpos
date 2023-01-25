@@ -4,18 +4,18 @@
       :size="600" @close="$emit('close')">
         <div class="create_landlord">
           <label>First name</label>
-          <BaseTextfield v-model="landlord.first_name"
+          <BaseTextfield @value="landlord.first_name = $event"
             :preset="landlord.first_name" placeholder="First name"
           />
           <label>Last name</label>
-          <BaseTextfield v-model="landlord.last_name"
+          <BaseTextfield @value="landlord.last_name = $event"
             :preset="landlord.last_name" placeholder="Last name"
           />
           <label>Contact number</label>
-          <BaseTextfield v-model="landlord.contact"
+          <BaseTextfield @value="landlord.contact = $event"
             :preset="landlord.contact" placeholder="Contact number" />
           <label>Email address</label>
-          <BaseTextfield v-model="landlord.email"
+          <BaseTextfield @value="landlord.email = $event"
             :preset="landlord.email" placeholder="Email address" />
           <div class="sbmt_btn mt-4">
             <v-btn :disabled="!isValid || loading" block @click="createLandlord">

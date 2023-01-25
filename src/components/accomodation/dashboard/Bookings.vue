@@ -4,7 +4,7 @@
           <h3>Bookings<span><br><small>{{ property.name }}</small></span></h3>
         </div>
 
-        <BaseTextfield v-model="search" placeholder="Search for a room" />
+        <BaseTextfield @value="search = $event" placeholder="Search for a room" />
 
         <div class="units_list">
            <div>

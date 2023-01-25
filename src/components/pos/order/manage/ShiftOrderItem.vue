@@ -3,7 +3,7 @@
         :title="`Select table to shift item`"
         :size="700" @close="$emit('close')">
         <div class="shift_order_item">
-          <BaseTextfield placeholder="Search for a table" v-model.trim="search" />
+          <BaseTextfield placeholder="Search for a table" @value="search = $event" />
           <div class="tables_list">
             <div
               class="table_item"

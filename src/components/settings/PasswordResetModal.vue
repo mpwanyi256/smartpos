@@ -4,7 +4,7 @@
     :size="700" @close="$emit('close')">
     <div class="password_reset">
          <BaseTextfield
-            v-model.trim="password"
+            @value="password = $event"
             placeholder="Enter new password"
             :inputType="'password'"
         />

@@ -3,7 +3,7 @@
     <div class="recipe_view" @scroll="refetchItems">
       <div class="receipe_section">
         <Table>
-          <template slot="header">
+          <template #header>
             <tr>
               <th>
                 Purchase Item
@@ -13,7 +13,7 @@
               <th>Delete</th>
             </tr>
           </template>
-          <template slot="body">
+          <template #body>
             <tr v-for="storeItem in recipe" :key="`item-receipes-${storeItem.id}`">
               <td>{{ storeItem.name }}</td>
               <td>{{ storeItem.measure }}</td>
@@ -52,7 +52,6 @@
 import { mapActions } from 'vuex';
 import Basemodal from '@/components/generics/Basemodal.vue';
 import ConfirmModal from '@/components/generics/ConfirmModal.vue';
-import Table from '@/components/generics/new/Table.vue';
 import RecipeItemKnockOff from '@/components/inventory/store/RecipeItemKnockOff.vue';
 import AddRecipeItemRow from '@/components/inventory/store/AddRecipeItemRow.vue';
 
@@ -60,7 +59,6 @@ export default {
   name: 'MenuItemRecipeModal',
   components: {
     Basemodal,
-    Table,
     RecipeItemKnockOff,
     AddRecipeItemRow,
     ConfirmModal,

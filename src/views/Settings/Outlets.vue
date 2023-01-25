@@ -1,14 +1,14 @@
 <template>
     <PageTemplate title="Company outlets">
-        <template slot="header-actions">
-        <BaseTextfield v-model="search" placeholder="Search" />
+        <template #header-actions>
+        <BaseTextfield @value="search = $event" placeholder="Search" />
         <v-btn fab small @click="createOutlet = true">
             <v-icon>mdi-plus</v-icon>
         </v-btn>
       </template>
-      <template slot="body">
+      <template #body>
         <Table>
-            <template slot="header">
+            <template #header>
                 <tr>
                 <th>#</th>
                 <th>Name</th>
@@ -17,7 +17,7 @@
                 <th>&nbsp;</th>
                 </tr>
             </template>
-            <template slot="body">
+            <template #body>
                 <tr v-for="(outlet, i) in outlets" :key="`propertyUnit${outlet.id}`">
                     <td>{{ ++i }}</td>
                     <td>{{ outlet.name }}</td>

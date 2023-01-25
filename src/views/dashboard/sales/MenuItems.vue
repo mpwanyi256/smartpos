@@ -10,15 +10,16 @@
             <div class="search_area">
                 <v-select
                   outlined
+                  density="comfortable"
                   label="Department"
                   v-model="departmentSelected" dense
-                  item-text="name"
+                  item-title="name"
                   item-value="id"
                   :items="departments"
                 />
                 <v-text-field label="Search"
-                  v-model="itemSearch" dense outlined placeholder="Search" />
-                <BaseTooltip message="Upload items" icon="cloud-upload" />
+                  v-model="itemSearch" density="compact" outlined placeholder="Search" />
+                <!-- <BaseTooltip message="Upload items" icon="cloud-upload" /> -->
                 <BaseTooltip message="Add new item" icon="plus" @button="createModal = true" />
             </div>
         </div>
@@ -26,7 +27,7 @@
         <template v-else>
             <div class="menu_items_display_section">
               <Table>
-                <template slot="header">
+                <template #header>
                   <tr>
                     <th>#</th>
                     <th>Item Name</th>
@@ -36,7 +37,7 @@
                     <th>update</th>
                   </tr>
                 </template>
-                <template slot="body">
+                <template #body>
                   <tr v-for="item in menuItemsFiltered" :key="`menuItem${item.id}`">
                     <td>{{ item.id }}</td>
                     <td>{{ item.name }}</td>

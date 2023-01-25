@@ -1,24 +1,26 @@
 <template>
     <div class="access_conrols">
         <Table>
-            <template slot="header">
+            <template #header>
                 <tr>
                     <th>
                       <div class="search_field">
-                        <BaseTextfield v-model="search" placeholder="Search ..." />
-                        <v-select small-chips outlined dense
+                        <BaseTextfield @input="search = $event" placeholder="Search ..." />
+                        <v-select outlined
+                        density="compact"
                           :items="outlets"
-                          item-text="name"
+                          item-title="name"
                           item-value="id"
                           label="Outlet"
                           v-model="selectedOutlet"
+                          single-line
                         />
                       </div>
                     </th>
                     <th>STATUS</th>
                 </tr>
             </template>
-            <template slot="body">
+            <template #body>
                 <tr v-for="(setting, i) in filteredControls" :key="i">
                     <td>
                       <p>

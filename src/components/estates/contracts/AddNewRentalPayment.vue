@@ -11,9 +11,9 @@
                 </p>
                 <p>
                     <BaseTextfield
-                        v-model="amountPaid"
-                        inputType="number"
-                        :placeholder="`Amount in (${contract.currency_name})`"
+                      @value="amountPaid = $event"
+                      inputType="number"
+                      :placeholder="`Amount in (${contract.currency_name})`"
                     />
                 </p>
             </div>
@@ -42,7 +42,7 @@
             <div>
                 <p>Remarks</p>
                 <p>
-                    <BaseTextfield placeholder="remarks" v-model="remarks" />
+                  <BaseTextfield placeholder="remarks" @value="remarks = $event" />
                 </p>
             </div>
             <div class="error_message">&nbsp;

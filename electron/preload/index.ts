@@ -56,10 +56,12 @@ function useLoading() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #282c34;
+  background-image: url('./rocket.jpeg');
+  background-size: cover; 
   z-index: 9;
 }
     `
+  // #282c34;
   const oStyle = document.createElement('style')
   const oDiv = document.createElement('div')
 

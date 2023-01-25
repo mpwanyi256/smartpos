@@ -18,16 +18,16 @@
                     outlined
                     label="Department"
                     v-model="departmentSelected" dense
-                    item-text="name"
+                    item-title="name"
                     item-value="id"
                     :items="departments"
                 />
             </div>
             <div class="bill_no">
-                <v-autocomplete
+                <v-select
                   v-model="selectedMenuItems"
                   :items="departmentSelected == 0 ? menuItems : menuItemsFiltered"
-                  item-text="name"
+                  item-title="name"
                   item-value="id"
                   outlined
                   dense
@@ -38,20 +38,21 @@
                 />
             </div>
             <div class="bill_no">
-                <DatePickerBeta @picked="setDateFrom" :message="'From'" />
+              <DatePickerBeta @picked="setDateFrom" :message="'From'" />
             </div>
             <div class="bill_no">
-                <DatePickerBeta @picked="setDateTo" :message="'To'" />
+              <DatePickerBeta @picked="setDateTo" :message="'To'" />
             </div>
             <div class="bill_no">
-                <v-btn small @click="fetchSales">Search</v-btn>
+              <v-btn small @click="fetchSales">Search</v-btn>
             </div>
         </div>
         <div class="orders_table">
           <LoadingSpinner class="large" v-if="loading" />
-          <Table>
-            <template slot="header">
+          <Table v-else>
+            <template #header>
               <tr>
+                <th>#</th>
                 <th>Item name</th>
                 <th>Unit Price</th>
                 <th>Quantity sold</th>
@@ -61,8 +62,9 @@
                 <th>&nbsp;</th>
               </tr>
             </template>
-            <template slot="body">
-              <tr v-for="item in itemsSoldFetch" :key="`item-sold-${item.item_id}`">
+            <template #body>
+              <tr v-for="(item, idx) in itemsSoldFetch" :key="`item-sold-${item.item_id}`">
+                <td>{{ (page-1)* itemsPerPage + idx + 1}}</td>
                 <td>{{ item.item_name }}</td>
                 <td>{{ item.item_price }}</td>
                 <td>{{ item.quantity_sold }}</td>
@@ -183,7 +185,6 @@ export default {
         itemsPerPage: this.itemsPerPage,
         company_id: localStorage.getItem('smart_company_id'),
       };
-      console.log('filters', filters);
       this.fetchItemsSold(filters)
         .then((ItemsSold) => {
           if (!ItemsSold.error) {

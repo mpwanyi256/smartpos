@@ -1,14 +1,14 @@
 <template>
     <div class="company_departments">
         <Table>
-            <template slot="header">
+            <template #header>
                 <th>#</th>
                 <th>Department</th>
                 <th>Printer</th>
                 <th>Connection type</th>
                 <th>Printer info</th>
             </template>
-            <template slot="body">
+            <template #body>
                 <tr v-for="(department, i) in actualDepartments"
                     :key="`department-${department.id}`"
                 >
